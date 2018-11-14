@@ -7,3 +7,14 @@
 //
 
 import Foundation
+import UIKit
+
+extension EventBriteClient {
+    
+    struct Constants {
+        
+        static let authorizationURL = "https://www.eventbrite.com/oauth/authorize"
+        
+        
+    }
+}

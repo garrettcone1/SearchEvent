@@ -8,13 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		4A1F513B219BA74500B69D28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F513A219BA74500B69D28 /* AppDelegate.swift */; };
-		4A1F513D219BA74500B69D28 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F513C219BA74500B69D28 /* ViewController.swift */; };
+		4A1F513D219BA74500B69D28 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F513C219BA74500B69D28 /* LoginVC.swift */; };
 		4A1F5140219BA74500B69D28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A1F513E219BA74500B69D28 /* Main.storyboard */; };
 		4A1F5142219BA74700B69D28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A1F5141219BA74700B69D28 /* Assets.xcassets */; };
 		4A1F5145219BA74700B69D28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A1F5143219BA74700B69D28 /* LaunchScreen.storyboard */; };
 		4A1F5150219BA74800B69D28 /* EventSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F514F219BA74800B69D28 /* EventSearchTests.swift */; };
 		4A1F515B219BA74800B69D28 /* EventSearchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F515A219BA74800B69D28 /* EventSearchUITests.swift */; };
 		4A1F516C219BADA300B69D28 /* GCDBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F516B219BADA300B69D28 /* GCDBlackBox.swift */; };
+		4A1F516E219C067300B69D28 /* EventBriteClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F516D219C067300B69D28 /* EventBriteClient.swift */; };
+		4A1F5170219C06B500B69D28 /* EventBriteConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F516F219C06B500B69D28 /* EventBriteConvenience.swift */; };
+		4A1F5172219C075C00B69D28 /* EventBriteAuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F5171219C075C00B69D28 /* EventBriteAuthVC.swift */; };
+		4A1F5174219C104C00B69D28 /* EventBriteConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F5173219C104C00B69D28 /* EventBriteConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +41,7 @@
 /* Begin PBXFileReference section */
 		4A1F5137219BA74500B69D28 /* EventSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A1F513A219BA74500B69D28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4A1F513C219BA74500B69D28 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4A1F513C219BA74500B69D28 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		4A1F513F219BA74500B69D28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4A1F5141219BA74700B69D28 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A1F5144219BA74700B69D28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +53,10 @@
 		4A1F515A219BA74800B69D28 /* EventSearchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSearchUITests.swift; sourceTree = "<group>"; };
 		4A1F515C219BA74800B69D28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A1F516B219BADA300B69D28 /* GCDBlackBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GCDBlackBox.swift; path = EventSearch/GCDBlackBox.swift; sourceTree = SOURCE_ROOT; };
+		4A1F516D219C067300B69D28 /* EventBriteClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventBriteClient.swift; sourceTree = "<group>"; };
+		4A1F516F219C06B500B69D28 /* EventBriteConvenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventBriteConvenience.swift; sourceTree = "<group>"; };
+		4A1F5171219C075C00B69D28 /* EventBriteAuthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventBriteAuthVC.swift; sourceTree = "<group>"; };
+		4A1F5173219C104C00B69D28 /* EventBriteConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventBriteConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +145,10 @@
 		4A1F5169219BAD5800B69D28 /* EventBrite */ = {
 			isa = PBXGroup;
 			children = (
+				4A1F5171219C075C00B69D28 /* EventBriteAuthVC.swift */,
+				4A1F516D219C067300B69D28 /* EventBriteClient.swift */,
+				4A1F516F219C06B500B69D28 /* EventBriteConvenience.swift */,
+				4A1F5173219C104C00B69D28 /* EventBriteConstants.swift */,
 			);
 			path = EventBrite;
 			sourceTree = "<group>";
@@ -144,7 +156,7 @@
 		4A1F516A219BAD6A00B69D28 /* EventSearch */ = {
 			isa = PBXGroup;
 			children = (
-				4A1F513C219BA74500B69D28 /* ViewController.swift */,
+				4A1F513C219BA74500B69D28 /* LoginVC.swift */,
 				4A1F513E219BA74500B69D28 /* Main.storyboard */,
 				4A1F5141219BA74700B69D28 /* Assets.xcassets */,
 				4A1F5143219BA74700B69D28 /* LaunchScreen.storyboard */,
@@ -283,8 +295,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A1F513D219BA74500B69D28 /* ViewController.swift in Sources */,
+				4A1F5174219C104C00B69D28 /* EventBriteConstants.swift in Sources */,
+				4A1F516E219C067300B69D28 /* EventBriteClient.swift in Sources */,
+				4A1F513D219BA74500B69D28 /* LoginVC.swift in Sources */,
+				4A1F5170219C06B500B69D28 /* EventBriteConvenience.swift in Sources */,
 				4A1F516C219BADA300B69D28 /* GCDBlackBox.swift in Sources */,
+				4A1F5172219C075C00B69D28 /* EventBriteAuthVC.swift in Sources */,
 				4A1F513B219BA74500B69D28 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
