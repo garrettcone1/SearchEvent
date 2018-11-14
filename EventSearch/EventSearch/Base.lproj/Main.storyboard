@@ -1,24 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--LoginVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginVC" customModule="EventSearch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="hQD-0U-hXT">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Authenticate with EventBrite" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cT5-x5-qVg">
+                                <rect key="frame" x="74" y="396" width="226" height="20"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="gjs-7M-iLL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PmC-wj-tLL">
+                                <rect key="frame" x="74" y="424" width="226" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Log In">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iFd-mv-87y"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PmC-wj-tLL" secondAttribute="trailing" constant="75" id="6GT-bv-A38"/>
+                            <constraint firstItem="PmC-wj-tLL" firstAttribute="top" secondItem="cT5-x5-qVg" secondAttribute="bottom" constant="8" id="DqW-Wy-GhQ"/>
+                            <constraint firstItem="cT5-x5-qVg" firstAttribute="trailing" secondItem="PmC-wj-tLL" secondAttribute="trailing" id="GEU-KV-ZS7"/>
+                            <constraint firstItem="cT5-x5-qVg" firstAttribute="leading" secondItem="PmC-wj-tLL" secondAttribute="leading" id="IP3-Qn-y58"/>
+                            <constraint firstAttribute="bottom" secondItem="hQD-0U-hXT" secondAttribute="bottom" id="O0v-Qk-lhI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="PmC-wj-tLL" secondAttribute="bottom" constant="324" id="ObU-HU-8TI"/>
+                            <constraint firstItem="PmC-wj-tLL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="74" id="UPE-C2-ZmR"/>
+                            <constraint firstItem="PmC-wj-tLL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="74" id="Z2x-qu-npV"/>
+                            <constraint firstItem="hQD-0U-hXT" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="hqz-W6-T6N"/>
+                            <constraint firstItem="hQD-0U-hXT" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="oO1-ci-zUY"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PmC-wj-tLL" secondAttribute="trailing" constant="75" id="ozD-82-qDl"/>
+                            <constraint firstItem="PmC-wj-tLL" firstAttribute="top" secondItem="cT5-x5-qVg" secondAttribute="bottom" constant="8" id="rJi-Vx-MuT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="PmC-wj-tLL" secondAttribute="bottom" constant="324" id="rVd-aW-fSX"/>
+                            <constraint firstItem="hQD-0U-hXT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xwx-xD-zor"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="loginButton" destination="PmC-wj-tLL" id="bPc-AK-U0u"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="53.600000000000001" y="22.906403940886701"/>
+        </scene>
+        <!--Event Brite AuthVC-->
+        <scene sceneID="YVa-WG-pIm">
+            <objects>
+                <viewController id="oVF-n6-Hbo" customClass="EventBriteAuthVC" customModule="EventSearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rAr-8c-NnN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gpH-hr-y28">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="gpH-hr-y28" firstAttribute="top" secondItem="rAr-8c-NnN" secondAttribute="top" id="3ao-2c-5Bb"/>
+                            <constraint firstItem="gpH-hr-y28" firstAttribute="trailing" secondItem="En6-kT-74a" secondAttribute="trailing" id="4wa-mt-BL6"/>
+                            <constraint firstItem="gpH-hr-y28" firstAttribute="leading" secondItem="En6-kT-74a" secondAttribute="leading" id="ioy-e0-WZk"/>
+                            <constraint firstAttribute="bottom" secondItem="gpH-hr-y28" secondAttribute="bottom" id="o7N-kL-LY0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="En6-kT-74a"/>
+                    </view>
+                    <connections>
+                        <outlet property="view" destination="gpH-hr-y28" id="Jkh-CW-czs"/>
+                        <outlet property="webView" destination="gpH-hr-y28" id="74Y-Fj-3q4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qMy-ur-3pz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="767" y="475"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Image" width="303" height="517"/>
+    </resources>
 </document>
