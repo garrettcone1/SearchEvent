@@ -14,6 +14,7 @@
 		4A1F5145219BA74700B69D28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A1F5143219BA74700B69D28 /* LaunchScreen.storyboard */; };
 		4A1F5150219BA74800B69D28 /* EventSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F514F219BA74800B69D28 /* EventSearchTests.swift */; };
 		4A1F515B219BA74800B69D28 /* EventSearchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F515A219BA74800B69D28 /* EventSearchUITests.swift */; };
+		4A1F516C219BADA300B69D28 /* GCDBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F516B219BADA300B69D28 /* GCDBlackBox.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		4A1F5156219BA74800B69D28 /* EventSearchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EventSearchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A1F515A219BA74800B69D28 /* EventSearchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSearchUITests.swift; sourceTree = "<group>"; };
 		4A1F515C219BA74800B69D28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A1F516B219BADA300B69D28 /* GCDBlackBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GCDBlackBox.swift; path = EventSearch/GCDBlackBox.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +100,10 @@
 			isa = PBXGroup;
 			children = (
 				4A1F513A219BA74500B69D28 /* AppDelegate.swift */,
+				4A1F516B219BADA300B69D28 /* GCDBlackBox.swift */,
 				4A1F5168219BA81100B69D28 /* Model */,
+				4A1F5169219BAD5800B69D28 /* EventBrite */,
+				4A1F516A219BAD6A00B69D28 /* EventSearch */,
 				4A1F513C219BA74500B69D28 /* ViewController.swift */,
 				4A1F513E219BA74500B69D28 /* Main.storyboard */,
 				4A1F5141219BA74700B69D28 /* Assets.xcassets */,
@@ -131,6 +136,20 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		4A1F5169219BAD5800B69D28 /* EventBrite */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = EventBrite;
+			sourceTree = "<group>";
+		};
+		4A1F516A219BAD6A00B69D28 /* EventSearch */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = EventSearch;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A1F513D219BA74500B69D28 /* ViewController.swift in Sources */,
+				4A1F516C219BADA300B69D28 /* GCDBlackBox.swift in Sources */,
 				4A1F513B219BA74500B69D28 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
