@@ -101,14 +101,10 @@
 			children = (
 				4A1F513A219BA74500B69D28 /* AppDelegate.swift */,
 				4A1F516B219BADA300B69D28 /* GCDBlackBox.swift */,
+				4A1F5146219BA74700B69D28 /* Info.plist */,
 				4A1F5168219BA81100B69D28 /* Model */,
 				4A1F5169219BAD5800B69D28 /* EventBrite */,
 				4A1F516A219BAD6A00B69D28 /* EventSearch */,
-				4A1F513C219BA74500B69D28 /* ViewController.swift */,
-				4A1F513E219BA74500B69D28 /* Main.storyboard */,
-				4A1F5141219BA74700B69D28 /* Assets.xcassets */,
-				4A1F5143219BA74700B69D28 /* LaunchScreen.storyboard */,
-				4A1F5146219BA74700B69D28 /* Info.plist */,
 			);
 			path = EventSearch;
 			sourceTree = "<group>";
@@ -148,6 +144,10 @@
 		4A1F516A219BAD6A00B69D28 /* EventSearch */ = {
 			isa = PBXGroup;
 			children = (
+				4A1F513C219BA74500B69D28 /* ViewController.swift */,
+				4A1F513E219BA74500B69D28 /* Main.storyboard */,
+				4A1F5141219BA74700B69D28 /* Assets.xcassets */,
+				4A1F5143219BA74700B69D28 /* LaunchScreen.storyboard */,
 			);
 			path = EventSearch;
 			sourceTree = "<group>";
