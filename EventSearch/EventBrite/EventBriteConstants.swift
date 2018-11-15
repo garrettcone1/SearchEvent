@@ -17,4 +17,9 @@ extension EventBriteClient {
         
         
     }
+    
+    struct EventBriteParameterValues {
+        
+        static let APIKey = "VGFH4P6MBCK6LDYHLB"
+    }
 }
