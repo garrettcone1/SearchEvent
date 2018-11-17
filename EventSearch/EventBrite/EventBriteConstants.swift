@@ -14,11 +14,24 @@ extension EventBriteClient {
     struct Constants {
         
         static let authorizationURL = "https://www.eventbrite.com/oauth/authorize"
+        static let accessTokenURL = "https://www.eventbrite.com/oauth/token"
         
-        
+        static let APIScheme = "https"
+        static let APIHost = "www.eventbrite.com"
+        static let APIPath = "/oauth/authorize"
     }
     
-    struct EventBriteParameterValues {
+    struct Methods {
+        
+        static let eventsSearch = "/events/search/"
+    }
+    
+    struct EBParameterKeys {
+        
+        static let APIKey = "client_id"
+    }
+    
+    struct EBParameterValues {
         
         static let APIKey = "VGFH4P6MBCK6LDYHLB"
     }
