@@ -18,8 +18,23 @@ extension EventBriteClient {
         
     }
     
+    func authorizationURL(_ completionHandler: @escaping (_ success: Bool, _ errorString: String?) -> Void) {
+        
+        let parameters = [
+            
+        ]
+        
+        let _ = taskForGETMethod(<#T##method: String##String#>, parameters: <#T##[String : AnyObject]#>, <#T##completionHandlerForGET: (AnyObject?, NSError?) -> Void##(AnyObject?, NSError?) -> Void#>)
+    }
+    
     func getRequestToken(_ completionHandler: @escaping (_ success: Bool, _ requestToken: String?, _ errorString: String?) -> Void) {
         
         
     }
+    
+    func loginWithToken(_ requestToken: String?, viewController: UIViewController, completionHandlerForLogin: @escaping (_ success: Bool, _ errorString: String?) -> Void) {
+        
+        let authorizationURL = URL(string: "")
+    }
+    
 }

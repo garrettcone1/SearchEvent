@@ -69,6 +69,19 @@
             </objects>
             <point key="canvasLocation" x="53.600000000000001" y="22.906403940886701"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="j3z-Ul-LnG">
+            <objects>
+                <navigationController storyboardIdentifier="EventNavigationController" id="IYD-z5-POF" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1yP-mk-6pl">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zrQ-gm-gyX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="794" y="23"/>
+        </scene>
         <!--Event Brite AuthVC-->
         <scene sceneID="YVa-WG-pIm">
             <objects>
@@ -102,7 +115,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qMy-ur-3pz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="767" y="475"/>
+            <point key="canvasLocation" x="54" y="677"/>
         </scene>
     </scenes>
     <resources>

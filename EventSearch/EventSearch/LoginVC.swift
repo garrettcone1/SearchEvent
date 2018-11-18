@@ -28,7 +28,12 @@ class LoginVC: UIViewController {
         
         // Create authorization request to EventBrite and load the Web View
         
+    }
+    
+    // Create function to instantiate the View Controller if successfully logged in
+    private func successfulLogin() {
         
+        let controller = storyboard!.instantiateViewController(withIdentifier: "EventNavigationController") as! UINavigationController
+        present(controller, animated: true, completion: nil)
     }
 }
-

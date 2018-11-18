@@ -25,6 +25,7 @@ class EventBriteClient: NSObject {
         parametersWithAPIKey[EBParameterKeys.APIKey] = EBParameterValues.APIKey as AnyObject?
         
         let request = NSMutableURLRequest(url: eventBriteURLFromParameters(parametersWithAPIKey, withPathExtension: method))
+        print(request)
         
         let task = session.dataTask(with: request as URLRequest) { (data, response, error) in
             
