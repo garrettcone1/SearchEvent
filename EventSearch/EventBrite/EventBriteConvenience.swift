@@ -21,10 +21,20 @@ extension EventBriteClient {
     func authorizationURL(_ completionHandler: @escaping (_ success: Bool, _ errorString: String?) -> Void) {
         
         let parameters = [
-            
+            EBParameterKeys.responseType: EBParameterValues.code,
+            EBParameterKeys.APIKey: EBParameterValues.APIKey
         ]
         
-        let _ = taskForGETMethod(<#T##method: String##String#>, parameters: <#T##[String : AnyObject]#>, <#T##completionHandlerForGET: (AnyObject?, NSError?) -> Void##(AnyObject?, NSError?) -> Void#>)
+        let _ = taskForGETMethod(EventBriteClient.Methods.APIMethod, parameters: parameters as [String: AnyObject]) { (results, error) in
+            
+            if let error = error {
+                print(error)
+                completionHandler(false, "Could not reach Authorization URL")
+            } else {
+                
+                
+            }
+        }
     }
     
     func getRequestToken(_ completionHandler: @escaping (_ success: Bool, _ requestToken: String?, _ errorString: String?) -> Void) {
@@ -34,7 +44,20 @@ extension EventBriteClient {
     
     func loginWithToken(_ requestToken: String?, viewController: UIViewController, completionHandlerForLogin: @escaping (_ success: Bool, _ errorString: String?) -> Void) {
         
-        let authorizationURL = URL(string: "")
+        let authorizationURL = URL(string: "\(Constants.authenticateURL)\(requestToken!)")
+        let request = URLRequest(url: authorizationURL!)
+        let webViewController = viewController.storyboard!.instantiateViewController(withIdentifier: "EventBriteAuthVC") as! EventBriteAuthVC
+        
+        webViewController.urlRequest = request
+        webViewController.requestToken = requestToken
+        webViewController.completionHandler = completionHandlerForLogin
+        
+        let webAuthNavigationController = UINavigationController()
+        webAuthNavigationController.pushViewController(webViewController, animated: false)
+        
+        performuUIUpdatesOnMain {
+            viewController.present(webAuthNavigationController, animated: true, completion: nil)
+        }
     }
     
 }

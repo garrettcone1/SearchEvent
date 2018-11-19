@@ -14,6 +14,9 @@ class EventBriteAuthVC: UIViewController, WKUIDelegate {
     
     //@IBOutlet weak var webView: WKWebView!
     var webView: WKWebView!
+    var urlRequest: URLRequest? = nil
+    var requestToken: String? = nil
+    var completionHandler: ((_ success: Bool, _ errorString: String?) -> Void)? = nil
     
     override func loadView() {
         

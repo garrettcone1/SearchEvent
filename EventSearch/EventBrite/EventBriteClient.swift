@@ -82,7 +82,7 @@ class EventBriteClient: NSObject {
         var components = URLComponents()
         components.scheme = Constants.APIScheme
         components.host = Constants.APIHost
-        components.path = Constants.APIPath
+        components.path = Constants.APIPath + (withPathExtension ?? "")
         components.queryItems = [URLQueryItem]()
         
         for (key, value) in parameters {

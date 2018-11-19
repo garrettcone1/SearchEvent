@@ -17,18 +17,21 @@ extension EventBriteClient {
         static let authorizationURL = "https://www.eventbrite.com/oauth/authorize"
         static let APIScheme = "https"
         static let APIHost = "www.eventbrite.com"
-        static let APIPath = "/oauth/authorize"
+        static let APIPath = "/oauth"
         
         // Request Token URL
         static let requestTokenURL = "https://www.eventbrite.com/oauth/token"
-        static let tokenScheme = "https"
-        static let tokenHost = "www.eventbrite.com"
-        static let tokenPath = "/oauth/token"
+        
+        static let authenticateURL = "https://www.eventbriteapi.com/v3/users/me/?token="
+        
     }
     
     struct Methods {
         
         static let eventsSearch = "/events/search/"
+        static let tokenMethod = "/token"
+        static let APIMethod = "/authorize"
+        
     }
     
     struct EBParameterKeys {
