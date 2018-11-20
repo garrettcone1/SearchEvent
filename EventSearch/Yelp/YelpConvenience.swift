@@ -1,5 +1,5 @@
 //
-//  EventBriteConvenience.swift
+//  YelpConvenience.swift
 //  EventSearch
 //
 //  Created by Garrett Cone on 11/14/18.
@@ -9,23 +9,31 @@
 import Foundation
 import UIKit
 
-extension EventBriteClient {
-    
-    // Create authentication request with this URL: https://www.eventbrite.com/oauth/authorize?response_type=token&client_id=YOUR_CLIENT_KEY
+extension YelpClient {
     
     func authenticateWithViewController(_ viewController: UIViewController, completionHandlerForAuth: @escaping (_ success: Bool, _ errorString: String?) -> Void) {
         
-        
+        // THIS IS A TEST TO SEE IF I AM CORRECTLY LOADING THE WEBVIEW WITH THE RIGHT REQUEST
+        authorizationURL() { (success, errorString) in
+            
+            if success {
+                
+                completionHandlerForAuth(success, nil)
+            } else {
+                
+                print("Error with loading webview")
+            }
+        }
     }
     
     func authorizationURL(_ completionHandler: @escaping (_ success: Bool, _ errorString: String?) -> Void) {
         
         let parameters = [
-            EBParameterKeys.responseType: EBParameterValues.code,
-            EBParameterKeys.APIKey: EBParameterValues.APIKey
+            YelpParameterKeys.responseType: YelpParameterValues.token,
+            YelpParameterKeys.APIKey: YelpParameterValues.APIKey
         ]
         
-        let _ = taskForGETMethod(EventBriteClient.Methods.APIMethod, parameters: parameters as [String: AnyObject]) { (results, error) in
+        let _ = taskForGETMethod(YelpClient.Methods.APIMethod, parameters: parameters as [String: AnyObject]) { (results, error) in
             
             if let error = error {
                 print(error)
@@ -46,7 +54,7 @@ extension EventBriteClient {
         
         let authorizationURL = URL(string: "\(Constants.authenticateURL)\(requestToken!)")
         let request = URLRequest(url: authorizationURL!)
-        let webViewController = viewController.storyboard!.instantiateViewController(withIdentifier: "EventBriteAuthVC") as! EventBriteAuthVC
+        let webViewController = viewController.storyboard!.instantiateViewController(withIdentifier: "YelpAuthVC") as! YelpAuthVC
         
         webViewController.urlRequest = request
         webViewController.requestToken = requestToken

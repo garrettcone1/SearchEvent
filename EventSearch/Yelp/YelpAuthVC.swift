@@ -1,5 +1,5 @@
 //
-//  EventBriteAuthVC.swift
+//  YelpAuthVC.swift
 //  EventSearch
 //
 //  Created by Garrett Cone on 11/14/18.
@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import WebKit
 
-class EventBriteAuthVC: UIViewController, WKUIDelegate {
+class YelpAuthVC: UIViewController, WKUIDelegate {
     
     //@IBOutlet weak var webView: WKWebView!
     var webView: WKWebView!
@@ -33,9 +33,15 @@ class EventBriteAuthVC: UIViewController, WKUIDelegate {
         navigationItem.title = "EventBrite Auth"
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(pressedCancel))
         
-        let myURL = URL(string: EventBriteClient.Constants.authorizationURL)
+        let myURL = URL(string: YelpClient.Constants.authorizationURL)
         let myRequest = URLRequest(url: myURL!)
         webView.load(myRequest)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        
     }
     
     @objc func pressedCancel() {

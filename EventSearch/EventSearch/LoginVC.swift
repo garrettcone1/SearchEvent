@@ -27,14 +27,14 @@ class LoginVC: UIViewController {
     @IBAction func loginPressed(_ sender: Any) {
         
         // Create authorization request to EventBrite and load the Web View
-        EventBriteClient.sharedInstance().authenticateWithViewController(self) { (success, errorString) in
-            
+        YelpClient.sharedInstance().authenticateWithViewController(self) { (success, errorString) in
+
             performuUIUpdatesOnMain {
                 if success {
-                    
+
                     self.successfulLogin()
                 } else {
-                    
+
                     print(errorString!)
                 }
             }

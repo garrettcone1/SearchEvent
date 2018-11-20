@@ -82,10 +82,10 @@
             </objects>
             <point key="canvasLocation" x="794" y="23"/>
         </scene>
-        <!--Event Brite AuthVC-->
+        <!--Yelp AuthVC-->
         <scene sceneID="YVa-WG-pIm">
             <objects>
-                <viewController id="oVF-n6-Hbo" customClass="EventBriteAuthVC" customModule="EventSearch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="oVF-n6-Hbo" customClass="YelpAuthVC" customModule="EventSearch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rAr-8c-NnN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

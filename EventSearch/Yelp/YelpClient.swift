@@ -1,5 +1,5 @@
 //
-//  EventBriteClient.swift
+//  YelpClient.swift
 //  EventSearch
 //
 //  Created by Garrett Cone on 11/14/18.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class EventBriteClient: NSObject {
+class YelpClient: NSObject {
     
     var session = URLSession.shared
     
@@ -22,9 +22,9 @@ class EventBriteClient: NSObject {
     func taskForGETMethod(_ method: String, parameters: [String: AnyObject], _ completionHandlerForGET: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) -> URLSessionDataTask {
         
         var parametersWithAPIKey = parameters
-        parametersWithAPIKey[EBParameterKeys.APIKey] = EBParameterValues.APIKey as AnyObject?
+        parametersWithAPIKey[YelpParameterKeys.APIKey] = YelpParameterValues.APIKey as AnyObject?
         
-        let request = NSMutableURLRequest(url: eventBriteURLFromParameters(parametersWithAPIKey, withPathExtension: method))
+        let request = NSMutableURLRequest(url: yelpURLFromParameters(parametersWithAPIKey, withPathExtension: method))
         print(request)
         
         let task = session.dataTask(with: request as URLRequest) { (data, response, error) in
@@ -54,6 +54,15 @@ class EventBriteClient: NSObject {
                 return
             }
             
+//            var parsedResult: [String: AnyObject]! = nil
+//            do {
+//
+//                parsedResult = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: AnyObject]
+//            } catch {
+//
+//                print("Could not parse JSON data")
+//            }
+            
             self.convertDataWithCompletionHandler(data, completionHandlerForConvertData: completionHandlerForGET)
         }
         
@@ -63,21 +72,21 @@ class EventBriteClient: NSObject {
     
     private func convertDataWithCompletionHandler(_ data: Data, completionHandlerForConvertData: (_ result: AnyObject?, _ error: NSError?) -> Void) {
         
-        var parsedResult: AnyObject! = nil
+        var parsedResult: [String: AnyObject]! = nil
         
         do {
             
-            parsedResult = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as AnyObject
+            parsedResult = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String : AnyObject]
         } catch {
             
             let userInfo = [NSLocalizedDescriptionKey: "Could not parse the data as JSON: '\(data)'"]
             completionHandlerForConvertData(nil, NSError(domain: "convertDataWithCompletionHandler", code: 1, userInfo: userInfo))
         }
         
-        completionHandlerForConvertData(parsedResult, nil)
+        completionHandlerForConvertData(parsedResult as AnyObject, nil)
     }
     
-    private func eventBriteURLFromParameters(_ parameters: [String: AnyObject], withPathExtension: String? = nil) -> URL {
+    private func yelpURLFromParameters(_ parameters: [String: AnyObject], withPathExtension: String? = nil) -> URL {
         
         var components = URLComponents()
         components.scheme = Constants.APIScheme
@@ -94,11 +103,11 @@ class EventBriteClient: NSObject {
         return components.url!
     }
     
-    class func sharedInstance() -> EventBriteClient {
+    class func sharedInstance() -> YelpClient {
         
         struct Singleton {
             
-            static var sharedInstance = EventBriteClient()
+            static var sharedInstance = YelpClient()
         }
         return Singleton.sharedInstance
     }
