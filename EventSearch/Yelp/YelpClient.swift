@@ -19,18 +19,28 @@ class YelpClient: NSObject {
         super.init()
     }
     
-    func taskForGETMethod(_ latitude: Double, _ longitude: Double, _ completionHandlerForGET: @escaping (_ success: Bool, _ data: [[String: AnyObject]], _ error: NSError?) -> Void) {
+    func taskForGETMethod(_ latitude: Double, _ longitude: Double, _ completionHandlerForGET: @escaping (_ success: Bool, _ data: [[String: AnyObject]]?, _ error: NSError?) -> Void) {
         
 //        var parametersWithAPIKey = parameters
 //        parametersWithAPIKey[YelpParameterKeys.APIKey] = YelpParameterValues.APIKey as AnyObject?
         
         let methodParameters = [
         
+            Constants.YelpParameterKeys.APIKey: Constants.YelpParameterValues.APIKey,
+            Constants.YelpParameterKeys.latitute: latitude,
+            Constants.YelpParameterKeys.longitude: longitude,
+            Constants.YelpParameterKeys.radius: 24000
             
-        ]
+        ] as [String: Any]
         
-        let request = NSMutableURLRequest(url: yelpURLFromParameters(parametersWithAPIKey, withPathExtension: method))
-        print(request)
+        let urlString = Constants.Yelp.APIScheme +
+                Constants.Yelp.APIHost +
+                Constants.Yelp.APIPath +
+            escapedParameters(methodParameters as [String: AnyObject])
+        
+        let url = URL(string: urlString)!
+        
+        let request = NSMutableURLRequest(url: url)
         
         let task = session.dataTask(with: request as URLRequest) { (data, response, error) in
             
@@ -38,7 +48,7 @@ class YelpClient: NSObject {
                 
                 print(error)
                 let userInfo = [NSLocalizedDescriptionKey: error]
-                completionHandlerForGET(nil, NSError(domain: "taskForGETMethod", code: 1, userInfo: userInfo))
+                completionHandlerForGET(false, nil, NSError(domain: "taskForGETMethod", code: 1, userInfo: userInfo))
             }
             
             guard (error == nil) else {
@@ -58,15 +68,6 @@ class YelpClient: NSObject {
                 sendError("No data was returned by the request!")
                 return
             }
-            
-//            var parsedResult: [String: AnyObject]! = nil
-//            do {
-//
-//                parsedResult = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: AnyObject]
-//            } catch {
-//
-//                print("Could not parse JSON data")
-//            }
             
             self.convertDataWithCompletionHandler(data, completionHandlerForConvertData: completionHandlerForGET)
         }
@@ -91,23 +92,6 @@ class YelpClient: NSObject {
         completionHandlerForConvertData(parsedResult as AnyObject, nil)
     }
     
-    private func yelpURLFromParameters(_ parameters: [String: AnyObject], withPathExtension: String? = nil) -> URL {
-        
-        var components = URLComponents()
-        components.scheme = Constants.APIScheme
-        components.host = Constants.APIHost
-        components.path = Constants.APIPath + (withPathExtension ?? "")
-        components.queryItems = [URLQueryItem]()
-        
-        for (key, value) in parameters {
-            
-            let queryItem = URLQueryItem(name: key, value: "\(value)")
-            components.queryItems!.append(queryItem)
-        }
-        
-        return components.url!
-    }
-    
     class func sharedInstance() -> YelpClient {
         
         struct Singleton {
@@ -115,5 +99,29 @@ class YelpClient: NSObject {
             static var sharedInstance = YelpClient()
         }
         return Singleton.sharedInstance
+    }
+}
+
+extension YelpClient {
+    
+    public func escapedParameters(_ parameters: [String: AnyObject]) -> String {
+        
+        if parameters.isEmpty {
+            
+            return ""
+        } else {
+            
+            var keyValuePairs = [String]()
+            
+            for (key, value) in parameters {
+                
+                let stringValue = "\(value)"
+                let escapedValue = stringValue.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+                
+                keyValuePairs.append(key + "=" + "\(escapedValue!)")
+            }
+            
+            return "?\(keyValuePairs.joined(separator: "&"))"
+        }
     }
 }

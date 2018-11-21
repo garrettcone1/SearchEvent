@@ -13,10 +13,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    let coreDataStack = CoreDataStack(modelName: "Model")!
+    
+    func checkIfFirstLaunch() {
+        
+        if UserDefaults.standard.bool(forKey: "hasLaunchedBefore") {
+            
+            print("App has launched before")
+        } else {
+            
+            print("This is the first launch ever")
+            UserDefaults.standard.set(true, forKey: "hasLaunchedBefore")
+            UserDefaults.standard.synchronize()
+        }
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        // Loads the launch image a little slower to view it longer
         sleep(5)
+        
+        checkIfFirstLaunch()
+        
+        coreDataStack.autoSave(60)
         return true
     }
 
@@ -28,6 +48,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        
+        coreDataStack.save()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {

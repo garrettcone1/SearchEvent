@@ -19,6 +19,8 @@
 		4A1F5170219C06B500B69D28 /* YelpConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F516F219C06B500B69D28 /* YelpConvenience.swift */; };
 		4A1F5172219C075C00B69D28 /* YelpAuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F5171219C075C00B69D28 /* YelpAuthVC.swift */; };
 		4A1F5174219C104C00B69D28 /* YelpConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F5173219C104C00B69D28 /* YelpConstants.swift */; };
+		4A1F517921A52DF700B69D28 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F517721A52DF700B69D28 /* Model.xcdatamodeld */; };
+		4A1F517B21A5BC4500B69D28 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F517A21A5BC4500B69D28 /* CoreDataStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		4A1F516F219C06B500B69D28 /* YelpConvenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpConvenience.swift; sourceTree = "<group>"; };
 		4A1F5171219C075C00B69D28 /* YelpAuthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpAuthVC.swift; sourceTree = "<group>"; };
 		4A1F5173219C104C00B69D28 /* YelpConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpConstants.swift; sourceTree = "<group>"; };
+		4A1F517821A52DF700B69D28 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		4A1F517A21A5BC4500B69D28 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +142,8 @@
 		4A1F5168219BA81100B69D28 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4A1F517A21A5BC4500B69D28 /* CoreDataStack.swift */,
+				4A1F517721A52DF700B69D28 /* Model.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -298,6 +304,8 @@
 				4A1F5174219C104C00B69D28 /* YelpConstants.swift in Sources */,
 				4A1F516E219C067300B69D28 /* YelpClient.swift in Sources */,
 				4A1F513D219BA74500B69D28 /* LoginVC.swift in Sources */,
+				4A1F517B21A5BC4500B69D28 /* CoreDataStack.swift in Sources */,
+				4A1F517921A52DF700B69D28 /* Model.xcdatamodeld in Sources */,
 				4A1F5170219C06B500B69D28 /* YelpConvenience.swift in Sources */,
 				4A1F516C219BADA300B69D28 /* GCDBlackBox.swift in Sources */,
 				4A1F5172219C075C00B69D28 /* YelpAuthVC.swift in Sources */,
@@ -630,6 +638,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4A1F517721A52DF700B69D28 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4A1F517821A52DF700B69D28 /* Model.xcdatamodel */,
+			);
+			currentVersion = 4A1F517821A52DF700B69D28 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4A1F512F219BA74500B69D28 /* Project object */;
 }
