@@ -13,31 +13,44 @@ extension YelpClient {
     
     struct Constants {
         
-        // Authorization URL
-        static let authorizationURL = "https://api.yelp.com/v3"
-        static let APIScheme = "https"
-        static let APIHost = "www.eventbrite.com"
-        static let APIPath = "/oauth"
+        struct Yelp {
+            
+            // Authorization URL
+            static let authorizationURL = "https://api.yelp.com/v3"
+            static let APIScheme = "https://"
+            static let APIHost = "api.yelp.com"
+            static let APIPath = "/v3"
         
-        static let authenticateURL = "https://www.eventbriteapi.com/v3/users/me/?token="
+            static let authenticateURL = ""
         
-    }
+        }
     
-    struct Methods {
+        struct Methods {
         
-        
-    }
+            static let events = "/events"
+        }
     
-    struct YelpParameterKeys {
+        struct YelpParameterKeys {
         
-        static let APIKey = "api_key"
+            static let APIKey = "api_key"
         
-    }
+            static let limit = "limit"
+            static let latitute = "latitude"
+            static let longitude = "longitude"
+            static let radius = "radius"
+        
+        }
     
-    struct YelpParameterValues {
+        struct YelpParameterValues {
         
-        static let clientID = "AY2bfS9v9dNsHxist6eRbg"
-        static let APIKey = "Wor9XUTNP8575bilH5jYoVWKw6VOSkQkoB4F0WrDduW0qoEEB4lNTN58airVQz8IQN7v7p5hSZ2h8w8EmMgYfWoLnJ6nEgPknhcHIqkcq4-ZC0nFB4qUl9g4MJ_zW3Yx"
+            static let clientID = "AY2bfS9v9dNsHxist6eRbg"
+            static let APIKey = "Wor9XUTNP8575bilH5jYoVWKw6VOSkQkoB4F0WrDduW0qoEEB4lNTN58airVQz8IQN7v7p5hSZ2h8w8EmMgYfWoLnJ6nEgPknhcHIqkcq4-ZC0nFB4qUl9g4MJ_zW3Yx"
+        }
+    
+        struct YelpResponseKeys {
         
+            static let total = "total"
+            static let events = "events"
+        }
     }
 }

@@ -19,10 +19,15 @@ class YelpClient: NSObject {
         super.init()
     }
     
-    func taskForGETMethod(_ method: String, parameters: [String: AnyObject], _ completionHandlerForGET: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) -> URLSessionDataTask {
+    func taskForGETMethod(_ latitude: Double, _ longitude: Double, _ completionHandlerForGET: @escaping (_ success: Bool, _ data: [[String: AnyObject]], _ error: NSError?) -> Void) {
         
-        var parametersWithAPIKey = parameters
-        parametersWithAPIKey[YelpParameterKeys.APIKey] = YelpParameterValues.APIKey as AnyObject?
+//        var parametersWithAPIKey = parameters
+//        parametersWithAPIKey[YelpParameterKeys.APIKey] = YelpParameterValues.APIKey as AnyObject?
+        
+        let methodParameters = [
+        
+            
+        ]
         
         let request = NSMutableURLRequest(url: yelpURLFromParameters(parametersWithAPIKey, withPathExtension: method))
         print(request)
