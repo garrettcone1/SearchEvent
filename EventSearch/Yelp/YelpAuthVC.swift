@@ -33,7 +33,8 @@ class YelpAuthVC: UIViewController, WKUIDelegate {
         navigationItem.title = "EventBrite Auth"
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(pressedCancel))
         
-        let myURL = URL(string: YelpClient.Constants.authorizationURL)
+        //******* myURL NEEDS TO BE CHANGED WHEN EVERYTHING GETS FIXED
+        let myURL = URL(string: YelpClient.Constants.Yelp.authorizationURL)
         let myRequest = URLRequest(url: myURL!)
         webView.load(myRequest)
     }

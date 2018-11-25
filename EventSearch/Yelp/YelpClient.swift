@@ -19,7 +19,7 @@ class YelpClient: NSObject {
         super.init()
     }
     
-    func taskForGETMethod(_ latitude: Double, _ longitude: Double, _ completionHandlerForGET: @escaping (_ success: Bool, _ data: [[String: AnyObject]]?, _ error: NSError?) -> Void) {
+    func taskForGETMethod(latitude: String, longitude: /*Change to Double when setup model correctly*/String, _ completionHandlerForGET: @escaping (_ success: Bool, _ data: [[String: AnyObject]]?, _ error: NSError?) -> Void) {
         
 //        var parametersWithAPIKey = parameters
 //        parametersWithAPIKey[YelpParameterKeys.APIKey] = YelpParameterValues.APIKey as AnyObject?
@@ -29,7 +29,7 @@ class YelpClient: NSObject {
             Constants.YelpParameterKeys.APIKey: Constants.YelpParameterValues.APIKey,
             Constants.YelpParameterKeys.latitute: latitude,
             Constants.YelpParameterKeys.longitude: longitude,
-            Constants.YelpParameterKeys.radius: 24000
+            Constants.YelpParameterKeys.radius: Constants.YelpParameterValues.radiusValue
             
         ] as [String: Any]
         
@@ -69,11 +69,22 @@ class YelpClient: NSObject {
                 return
             }
             
-            self.convertDataWithCompletionHandler(data, completionHandlerForConvertData: completionHandlerForGET)
+            // PARSE THE DATA HERE ***********
+            //var parsedResult: [String: AnyObject]! = nil
+            var parsedResult: [String: AnyObject]
+            
+            do {
+                
+                parsedResult = try (JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String : AnyObject])!
+            } catch {
+                
+                print("Could not parse the data as JSON: '\(data)'")
+            }
+            //self.convertDataWithCompletionHandler(data, completionHandlerForConvertData: completionHandlerForGET)
+            completionHandlerForGET(true, nil, nil)
         }
         
         task.resume()
-        return task
     }
     
     private func convertDataWithCompletionHandler(_ data: Data, completionHandlerForConvertData: (_ result: AnyObject?, _ error: NSError?) -> Void) {

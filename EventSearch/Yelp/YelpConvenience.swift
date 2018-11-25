@@ -26,14 +26,13 @@ extension YelpClient {
         }
     }
     
-    func authorizationURL(_ completionHandler: @escaping (_ success: Bool, _ errorString: String?) -> Void) {
+    func authorizationURL(/*latitude: Double, longitude: Double,*/_ completionHandler: @escaping (_ success: Bool, _ errorString: String?) -> Void) {
         
-        let parameters = [
-            YelpParameterKeys.responseType: YelpParameterValues.token,
-            YelpParameterKeys.APIKey: YelpParameterValues.APIKey
-        ]
+        /*let parameters = [
+            Constants.YelpParameterKeys.APIKey: Constants.YelpParameterValues.APIKey
+        ]*/
         
-        let _ = taskForGETMethod(YelpClient.Methods.APIMethod, parameters: parameters as [String: AnyObject]) { (results, error) in
+        let _ = taskForGETMethod(latitude: Constants.YelpParameterKeys.latitute, longitude: Constants.YelpParameterKeys.longitude) { (success, results, error)  in
             
             if let error = error {
                 print(error)
@@ -52,7 +51,7 @@ extension YelpClient {
     
     func loginWithToken(_ requestToken: String?, viewController: UIViewController, completionHandlerForLogin: @escaping (_ success: Bool, _ errorString: String?) -> Void) {
         
-        let authorizationURL = URL(string: "\(Constants.authenticateURL)\(requestToken!)")
+        let authorizationURL = URL(string: "\(Constants.Yelp.authenticateURL)\(requestToken!)")
         let request = URLRequest(url: authorizationURL!)
         let webViewController = viewController.storyboard!.instantiateViewController(withIdentifier: "YelpAuthVC") as! YelpAuthVC
         
