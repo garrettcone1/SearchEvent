@@ -21,6 +21,10 @@
 		4A1F5174219C104C00B69D28 /* YelpConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F5173219C104C00B69D28 /* YelpConstants.swift */; };
 		4A1F517921A52DF700B69D28 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F517721A52DF700B69D28 /* Model.xcdatamodeld */; };
 		4A1F517B21A5BC4500B69D28 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F517A21A5BC4500B69D28 /* CoreDataStack.swift */; };
+		4A1F517D21ABA45400B69D28 /* Pin+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F517C21ABA45400B69D28 /* Pin+CoreDataClass.swift */; };
+		4A1F517F21ABA50500B69D28 /* Pin+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F517E21ABA50500B69D28 /* Pin+CoreDataProperties.swift */; };
+		4A1F518121ABA5EA00B69D28 /* Event+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F518021ABA5EA00B69D28 /* Event+CoreDataClass.swift */; };
+		4A1F518321ABA60200B69D28 /* Event+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F518221ABA60200B69D28 /* Event+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +65,10 @@
 		4A1F5173219C104C00B69D28 /* YelpConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpConstants.swift; sourceTree = "<group>"; };
 		4A1F517821A52DF700B69D28 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		4A1F517A21A5BC4500B69D28 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		4A1F517C21ABA45400B69D28 /* Pin+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pin+CoreDataClass.swift"; sourceTree = "<group>"; };
+		4A1F517E21ABA50500B69D28 /* Pin+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pin+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		4A1F518021ABA5EA00B69D28 /* Event+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Event+CoreDataClass.swift"; sourceTree = "<group>"; };
+		4A1F518221ABA60200B69D28 /* Event+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Event+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +152,10 @@
 			children = (
 				4A1F517A21A5BC4500B69D28 /* CoreDataStack.swift */,
 				4A1F517721A52DF700B69D28 /* Model.xcdatamodeld */,
+				4A1F518021ABA5EA00B69D28 /* Event+CoreDataClass.swift */,
+				4A1F518221ABA60200B69D28 /* Event+CoreDataProperties.swift */,
+				4A1F517C21ABA45400B69D28 /* Pin+CoreDataClass.swift */,
+				4A1F517E21ABA50500B69D28 /* Pin+CoreDataProperties.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -302,13 +314,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A1F5174219C104C00B69D28 /* YelpConstants.swift in Sources */,
+				4A1F517D21ABA45400B69D28 /* Pin+CoreDataClass.swift in Sources */,
 				4A1F516E219C067300B69D28 /* YelpClient.swift in Sources */,
+				4A1F517F21ABA50500B69D28 /* Pin+CoreDataProperties.swift in Sources */,
 				4A1F513D219BA74500B69D28 /* LoginVC.swift in Sources */,
 				4A1F517B21A5BC4500B69D28 /* CoreDataStack.swift in Sources */,
+				4A1F518321ABA60200B69D28 /* Event+CoreDataProperties.swift in Sources */,
 				4A1F517921A52DF700B69D28 /* Model.xcdatamodeld in Sources */,
 				4A1F5170219C06B500B69D28 /* YelpConvenience.swift in Sources */,
 				4A1F516C219BADA300B69D28 /* GCDBlackBox.swift in Sources */,
 				4A1F5172219C075C00B69D28 /* YelpAuthVC.swift in Sources */,
+				4A1F518121ABA5EA00B69D28 /* Event+CoreDataClass.swift in Sources */,
 				4A1F513B219BA74500B69D28 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
