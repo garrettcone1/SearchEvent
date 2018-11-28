@@ -15,8 +15,9 @@ class YelpAuthVC: UIViewController, WKUIDelegate {
     //@IBOutlet weak var webView: WKWebView!
     var webView: WKWebView!
     var urlRequest: URLRequest? = nil
-    var requestToken: String? = nil
     var completionHandler: ((_ success: Bool, _ errorString: String?) -> Void)? = nil
+    
+    
     
     override func loadView() {
         
@@ -30,19 +31,19 @@ class YelpAuthVC: UIViewController, WKUIDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        loadView()
+        
         navigationItem.title = "EventBrite Auth"
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(pressedCancel))
-        
-        //******* myURL NEEDS TO BE CHANGED WHEN EVERYTHING GETS FIXED
-        let myURL = URL(string: YelpClient.Constants.Yelp.authorizationURL)
-        let myRequest = URLRequest(url: myURL!)
-        webView.load(myRequest)
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        
+        let myURL = URL(string: YelpClient.Constants.Yelp.authorizationURL)
+        let myRequest = URLRequest(url: myURL!)
+        webView.load(myRequest)
     }
     
     @objc func pressedCancel() {

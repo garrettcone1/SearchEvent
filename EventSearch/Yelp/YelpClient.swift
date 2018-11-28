@@ -19,10 +19,7 @@ class YelpClient: NSObject {
         super.init()
     }
     
-    func taskForGETMethod(latitude: String, longitude: /*Change to Double when setup model correctly*/String, _ completionHandlerForGET: @escaping (_ success: Bool, _ data: [[String: AnyObject]]?, _ error: NSError?) -> Void) {
-        
-//        var parametersWithAPIKey = parameters
-//        parametersWithAPIKey[YelpParameterKeys.APIKey] = YelpParameterValues.APIKey as AnyObject?
+    func taskForGETMethod(latitude: Double, longitude: Double, _ completionHandlerForGET: @escaping (_ success: Bool, _ data: [[String: AnyObject]]?, _ error: NSError?) -> Void) {
         
         let methodParameters = [
         
@@ -41,6 +38,9 @@ class YelpClient: NSObject {
         let url = URL(string: urlString)!
         
         let request = NSMutableURLRequest(url: url)
+        
+        // Below request.addValue is a test to see if this is the correct request value for authentication
+        request.addValue("Authorization:", forHTTPHeaderField: "Bearer \(Constants.YelpParameterValues.APIKey)")
         
         let task = session.dataTask(with: request as URLRequest) { (data, response, error) in
             
@@ -71,7 +71,7 @@ class YelpClient: NSObject {
             
             // PARSE THE DATA HERE ***********
             //var parsedResult: [String: AnyObject]! = nil
-            var parsedResult: [String: AnyObject]
+            var parsedResult: [String: AnyObject]! = nil
             
             do {
                 

@@ -21,8 +21,7 @@ extension YelpClient {
             static let APIHost = "api.yelp.com"
             static let APIPath = "/v3"
         
-            static let authenticateURL = ""
-        
+            static let authenticateURL = "https://www.yelp.com/login"
         }
     
         struct Methods {

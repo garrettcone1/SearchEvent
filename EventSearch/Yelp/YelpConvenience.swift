@@ -11,52 +11,40 @@ import UIKit
 
 extension YelpClient {
     
-    func authenticateWithViewController(_ viewController: UIViewController, completionHandlerForAuth: @escaping (_ success: Bool, _ errorString: String?) -> Void) {
+    public func getEventsForPin(pin: Pin) {
         
-        // THIS IS A TEST TO SEE IF I AM CORRECTLY LOADING THE WEBVIEW WITH THE RIGHT REQUEST
-        authorizationURL() { (success, errorString) in
-            
-            if success {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let coreDataStack = appDelegate.coreDataStack
+        
+        performuUIUpdatesOnMain {
+            YelpClient.sharedInstance().taskForGETMethod(latitude: pin.latitude, longitude: pin.longitude) { (success, data, error) in
                 
-                completionHandlerForAuth(success, nil)
-            } else {
+                if let data = data {
+                    
+                    for item in data {
+                        
+                        let eventURL = item[Constants.YelpResponseKeys.events] as! String
+                        
+                        let event = Event(eventData: nil, eventURL: eventURL, context: coreDataStack.context)
+                        
+                        pin.addToEvents(event)
+                        
+                        coreDataStack.save()
+                    }
+                }
                 
-                print("Error with loading webview")
+                pin.isDownloaded = true
             }
         }
     }
     
-    func authorizationURL(/*latitude: Double, longitude: Double,*/_ completionHandler: @escaping (_ success: Bool, _ errorString: String?) -> Void) {
+    func authenticateWithViewController(viewController: UIViewController, completionHandlerForLogin: @escaping (_ success: Bool, _ errorString: String?) -> Void) {
         
-        /*let parameters = [
-            Constants.YelpParameterKeys.APIKey: Constants.YelpParameterValues.APIKey
-        ]*/
-        
-        let _ = taskForGETMethod(latitude: Constants.YelpParameterKeys.latitute, longitude: Constants.YelpParameterKeys.longitude) { (success, results, error)  in
-            
-            if let error = error {
-                print(error)
-                completionHandler(false, "Could not reach Authorization URL")
-            } else {
-                
-                
-            }
-        }
-    }
-    
-    func getRequestToken(_ completionHandler: @escaping (_ success: Bool, _ requestToken: String?, _ errorString: String?) -> Void) {
-        
-        
-    }
-    
-    func loginWithToken(_ requestToken: String?, viewController: UIViewController, completionHandlerForLogin: @escaping (_ success: Bool, _ errorString: String?) -> Void) {
-        
-        let authorizationURL = URL(string: "\(Constants.Yelp.authenticateURL)\(requestToken!)")
+        let authorizationURL = URL(string: "\(Constants.Yelp.authenticateURL)")
         let request = URLRequest(url: authorizationURL!)
         let webViewController = viewController.storyboard!.instantiateViewController(withIdentifier: "YelpAuthVC") as! YelpAuthVC
         
         webViewController.urlRequest = request
-        webViewController.requestToken = requestToken
         webViewController.completionHandler = completionHandlerForLogin
         
         let webAuthNavigationController = UINavigationController()
