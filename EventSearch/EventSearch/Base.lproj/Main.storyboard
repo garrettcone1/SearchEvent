@@ -91,7 +91,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gpH-hr-y28">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="724"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -101,7 +101,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="gpH-hr-y28" firstAttribute="top" secondItem="rAr-8c-NnN" secondAttribute="top" id="3ao-2c-5Bb"/>
+                            <constraint firstItem="gpH-hr-y28" firstAttribute="top" secondItem="rAr-8c-NnN" secondAttribute="top" constant="88" id="3ao-2c-5Bb"/>
                             <constraint firstItem="gpH-hr-y28" firstAttribute="trailing" secondItem="En6-kT-74a" secondAttribute="trailing" id="4wa-mt-BL6"/>
                             <constraint firstItem="gpH-hr-y28" firstAttribute="leading" secondItem="En6-kT-74a" secondAttribute="leading" id="ioy-e0-WZk"/>
                             <constraint firstAttribute="bottom" secondItem="gpH-hr-y28" secondAttribute="bottom" id="o7N-kL-LY0"/>
@@ -115,7 +115,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qMy-ur-3pz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="54" y="677"/>
+            <point key="canvasLocation" x="53.600000000000001" y="676.84729064039414"/>
         </scene>
     </scenes>
     <resources>

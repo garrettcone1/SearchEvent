@@ -41,7 +41,7 @@ class YelpAuthVC: UIViewController, WKUIDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let myURL = URL(string: YelpClient.Constants.Yelp.authorizationURL)
+        let myURL = URL(string: YelpClient.Constants.Yelp.authenticateURL)
         let myRequest = URLRequest(url: myURL!)
         webView.load(myRequest)
     }
