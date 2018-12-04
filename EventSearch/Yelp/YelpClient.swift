@@ -70,7 +70,6 @@ class YelpClient: NSObject {
             }
             
             // PARSE THE DATA HERE ***********
-            //var parsedResult: [String: AnyObject]! = nil
             var parsedResult: [String: AnyObject]! = nil
             
             do {
