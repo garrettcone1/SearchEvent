@@ -75,6 +75,7 @@ class YelpClient: NSObject {
             do {
                 
                 parsedResult = try (JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String : AnyObject])!
+                print(parsedResult)
             } catch {
                 
                 print("Could not parse the data as JSON: '\(data)'")

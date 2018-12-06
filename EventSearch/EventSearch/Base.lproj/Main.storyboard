@@ -85,10 +85,10 @@
             </objects>
             <point key="canvasLocation" x="794" y="23"/>
         </scene>
-        <!--View Controller-->
+        <!--Map View Controller-->
         <scene sceneID="aNA-DA-JuA">
             <objects>
-                <viewController id="Yie-Aj-izY" sceneMemberID="viewController">
+                <viewController id="Yie-Aj-izY" customClass="MapViewController" customModule="EventSearch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UrC-KN-gPi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -102,6 +102,9 @@
                         <viewLayoutGuide key="safeArea" id="Qvu-aY-oQO"/>
                     </view>
                     <navigationItem key="navigationItem" id="K3t-x2-JuP"/>
+                    <connections>
+                        <outlet property="mapView" destination="FbD-2e-XRa" id="5hc-dv-IJm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iap-ah-pwz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
