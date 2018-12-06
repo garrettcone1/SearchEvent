@@ -17,6 +17,25 @@ class MapViewController: UIViewController {
     
     var coreDataController: CoreDataStack!
     
+    lazy var fetchedResultsController: NSFetchedResultsController <NSFetchRequestResult> = {
+        
+        // Get the stack
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        let stack = delegate.coreDataStack
+        
+        // Create a fetchRequest
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Pin")
+        fetchRequest.sortDescriptors = [
+            NSSortDescriptor(key: "latitude", ascending: true),
+            NSSortDescriptor(key: "longitude", ascending: true)
+        ]
+        
+        // Create the FetchedResultsController
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: stack.context, sectionNameKeyPath: nil, cacheName: nil)
+        
+        return fetchedResultsController
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
