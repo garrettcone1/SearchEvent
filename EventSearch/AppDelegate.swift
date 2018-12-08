@@ -24,6 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             print("This is the first launch ever")
             UserDefaults.standard.set(true, forKey: "hasLaunchedBefore")
+            UserDefaults.standard.set(20, forKey: "latitudeKey")
+            UserDefaults.standard.set(-85, forKey: "longitudeKey")
+            UserDefaults.standard.set(100, forKey: "latDeltaKey")
+            UserDefaults.standard.set(100, forKey: "longDeltaKey")
             UserDefaults.standard.synchronize()
         }
     }

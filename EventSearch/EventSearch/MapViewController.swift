@@ -39,6 +39,20 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        performuUIUpdatesOnMain {
+            self.loadMapDefaults()
+        }
         
+    }
+    
+    fileprivate func loadMapDefaults() {
+        
+        let span = MKCoordinateSpan(latitudeDelta: UserDefaults.standard.double(forKey: "latDeltaKey"), longitudeDelta: UserDefaults.standard.double(forKey: "longDeltaKey"))
+        
+        let location = CLLocationCoordinate2D(latitude: UserDefaults.standard.double(forKey: "latitudeKey"), longitude: UserDefaults.standard.double(forKey: "longitudeKey"))
+        
+        let region = MKCoordinateRegion(center: location, span: span)
+        
+        self.mapView.setRegion(region, animated: true)
     }
 }
