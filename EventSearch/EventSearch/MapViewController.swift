@@ -45,6 +45,33 @@ class MapViewController: UIViewController {
         
     }
     
+    @IBAction func addPin(_ sender: UILongPressGestureRecognizer) {
+        
+        if sender.state == UIGestureRecognizer.State.began {
+            
+            let location = sender.location(in: mapView)
+            let coordinate = mapView.convert(location, toCoordinateFrom: mapView)
+            
+            let delegate = UIApplication.shared.delegate as! AppDelegate
+            let coreDataStack = delegate.coreDataStack
+            
+            let pin = Pin(lat: coordinate.latitude, long: coordinate.longitude, isDownloaded: false, context: coreDataStack.context)
+            
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = coordinate
+            
+            self.mapView.addAnnotation(annotation)
+            
+            if !pin.isDownloaded {
+                
+                YelpClient.sharedInstance().getEventsForPin(pin: pin)
+            }
+            
+            coreDataStack.save()
+        }
+    }
+    
+    
     fileprivate func loadMapDefaults() {
         
         let span = MKCoordinateSpan(latitudeDelta: UserDefaults.standard.double(forKey: "latDeltaKey"), longitudeDelta: UserDefaults.standard.double(forKey: "longDeltaKey"))

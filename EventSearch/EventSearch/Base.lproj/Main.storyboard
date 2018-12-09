@@ -112,6 +112,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iap-ah-pwz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="PZ7-6j-sxj">
+                    <connections>
+                        <action selector="addPin:" destination="Yie-Aj-izY" id="ccz-GV-7rv"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1645.5999999999999" y="26.600985221674879"/>
         </scene>
