@@ -43,6 +43,19 @@ class MapViewController: UIViewController {
             self.loadMapDefaults()
         }
         
+        self.mapView.delegate = self as? MKMapViewDelegate
+        
+        var objects: [Any]?
+        
+        do {
+            
+            try fetchedResultsController.performFetch()
+            objects = (fetchedResultsController.sections?[0].objects)!
+            print(objects!)
+        } catch let error {
+            
+            print(error)
+        }
     }
     
     @IBAction func addPin(_ sender: UILongPressGestureRecognizer) {
@@ -71,6 +84,27 @@ class MapViewController: UIViewController {
         }
     }
     
+    public func addAnnotationsToMapView(objects: [Any]?) {
+        
+        if let objects = objects {
+            
+            for object in objects {
+                
+                guard let pin = object as? Pin else {
+                    
+                    return
+                }
+                
+                let lat = CLLocationDegrees(pin.latitude)
+                let long = CLLocationDegrees(pin.longitude)
+                let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = coordinate
+                
+                mapView.addAnnotation(annotation)
+            }
+        }
+    }
     
     fileprivate func loadMapDefaults() {
         
