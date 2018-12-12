@@ -40,7 +40,7 @@ class YelpClient: NSObject {
         let request = NSMutableURLRequest(url: url)
         
         // Below request.addValue is a test to see if this is the correct request value for authentication
-        request.addValue("Authorization:", forHTTPHeaderField: "Bearer \(Constants.YelpParameterValues.APIKey)")
+        //request.addValue("Authorization:", forHTTPHeaderField: "Bearer \(Constants.YelpParameterValues.APIKey)")
         
         let task = session.dataTask(with: request as URLRequest) { (data, response, error) in
             
@@ -80,7 +80,12 @@ class YelpClient: NSObject {
                 
                 print("Could not parse the data as JSON: '\(data)'")
             }
-            //self.convertDataWithCompletionHandler(data, completionHandlerForConvertData: completionHandlerForGET)
+            
+            guard let totalEvents = parsedResult[Constants.YelpResponseKeys.total] as? Int, let eventDictionary = parsedResult[Constants.YelpResponseKeys.events] as? [[String: AnyObject]] else {
+                
+                return
+            }
+            
             completionHandlerForGET(true, nil, nil)
         }
         

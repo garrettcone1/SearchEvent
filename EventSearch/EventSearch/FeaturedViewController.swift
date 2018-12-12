@@ -7,3 +7,14 @@
 //
 
 import Foundation
+import UIKit
+
+class FeaturedViewController: UIViewController {
+    
+    @IBOutlet weak var pageControl: UIPageControl!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+    }
+}

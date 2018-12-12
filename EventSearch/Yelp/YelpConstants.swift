@@ -51,6 +51,7 @@ extension YelpClient {
         
             static let total = "total"
             static let events = "events"
+            static let image = "image_url"
         }
     }
 }

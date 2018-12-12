@@ -44,7 +44,7 @@ class LoginVC: UIViewController {
     // Create function to instantiate the View Controller if successfully logged in
     private func successfulLogin() {
         
-        let controller = storyboard!.instantiateViewController(withIdentifier: "EventNavigationController") as! UINavigationController
+        let controller = storyboard!.instantiateViewController(withIdentifier: "EventTabController") as! UINavigationController
         present(controller, animated: true, completion: nil)
     }
 }
