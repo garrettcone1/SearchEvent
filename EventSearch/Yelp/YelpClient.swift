@@ -81,12 +81,13 @@ class YelpClient: NSObject {
                 print("Could not parse the data as JSON: '\(data)'")
             }
             
-            guard let totalEvents = parsedResult[Constants.YelpResponseKeys.total] as? Int, let eventDictionary = parsedResult[Constants.YelpResponseKeys.events] as? [[String: AnyObject]] else {
+            guard let _ = parsedResult[Constants.YelpResponseKeys.total] as? Int,
+                let eventDictionary = parsedResult[Constants.YelpResponseKeys.events] as? [[String: AnyObject]] else {
                 
                 return
             }
             
-            completionHandlerForGET(true, nil, nil)
+            completionHandlerForGET(true, eventDictionary, nil)
         }
         
         task.resume()

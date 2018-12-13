@@ -117,3 +117,14 @@ class MapViewController: UIViewController {
         self.mapView.setRegion(region, animated: true)
     }
 }
+
+extension MapViewController: MKMapViewDelegate {
+    
+    func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
+        UserDefaults.standard.set(mapView.region.center.latitude, forKey: "latitudeKey")
+        UserDefaults.standard.set(mapView.region.center.longitude, forKey: "longitudeKey")
+        UserDefaults.standard.set(mapView.region.span.latitudeDelta, forKey: "latDeltaKey")
+        UserDefaults.standard.set(mapView.region.span.longitudeDelta, forKey: "longDeltaKey")
+        UserDefaults.standard.synchronize()
+    }
+}

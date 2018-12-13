@@ -37,22 +37,4 @@ extension YelpClient {
             }
         }
     }
-    
-    func authenticateWithViewController(viewController: UIViewController, completionHandlerForLogin: @escaping (_ success: Bool, _ errorString: String?) -> Void) {
-        
-        let authorizationURL = URL(string: "\(Constants.Yelp.authenticateURL)")
-        let request = URLRequest(url: authorizationURL!)
-        let webViewController = viewController.storyboard!.instantiateViewController(withIdentifier: "YelpAuthVC") as! YelpAuthVC
-        
-        webViewController.urlRequest = request
-        webViewController.completionHandler = completionHandlerForLogin
-        
-        let webAuthNavigationController = UINavigationController()
-        webAuthNavigationController.pushViewController(webViewController, animated: false)
-        
-        performuUIUpdatesOnMain {
-            viewController.present(webAuthNavigationController, animated: true, completion: nil)
-        }
-    }
-    
 }
