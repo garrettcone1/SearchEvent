@@ -25,6 +25,7 @@
 		4A1F518321ABA60200B69D28 /* Event+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F518221ABA60200B69D28 /* Event+CoreDataProperties.swift */; };
 		4A1F518521B9E19800B69D28 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F518421B9E19800B69D28 /* MapViewController.swift */; };
 		4A1F518721C0834F00B69D28 /* FeaturedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F518621C0834F00B69D28 /* FeaturedViewController.swift */; };
+		4A1F518921C36A7800B69D28 /* EventsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F518821C36A7800B69D28 /* EventsTableVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		4A1F518221ABA60200B69D28 /* Event+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Event+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4A1F518421B9E19800B69D28 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		4A1F518621C0834F00B69D28 /* FeaturedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedViewController.swift; sourceTree = "<group>"; };
+		4A1F518821C36A7800B69D28 /* EventsTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsTableVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				4A1F518421B9E19800B69D28 /* MapViewController.swift */,
+				4A1F518821C36A7800B69D28 /* EventsTableVC.swift */,
 				4A1F518621C0834F00B69D28 /* FeaturedViewController.swift */,
 				4A1F513E219BA74500B69D28 /* Main.storyboard */,
 				4A1F5141219BA74700B69D28 /* Assets.xcassets */,
@@ -321,6 +324,7 @@
 				4A1F517B21A5BC4500B69D28 /* CoreDataStack.swift in Sources */,
 				4A1F518321ABA60200B69D28 /* Event+CoreDataProperties.swift in Sources */,
 				4A1F517921A52DF700B69D28 /* Model.xcdatamodeld in Sources */,
+				4A1F518921C36A7800B69D28 /* EventsTableVC.swift in Sources */,
 				4A1F5170219C06B500B69D28 /* YelpConvenience.swift in Sources */,
 				4A1F516C219BADA300B69D28 /* GCDBlackBox.swift in Sources */,
 				4A1F518121ABA5EA00B69D28 /* Event+CoreDataClass.swift in Sources */,

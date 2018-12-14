@@ -43,7 +43,7 @@ class MapViewController: UIViewController {
             self.loadMapDefaults()
         }
         
-        self.mapView.delegate = self as? MKMapViewDelegate
+        self.mapView.delegate = self
         
         var objects: [Any]?
         
