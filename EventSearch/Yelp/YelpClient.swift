@@ -70,11 +70,11 @@ class YelpClient: NSObject {
             }
             
             // PARSE THE DATA HERE ***********
-            var parsedResult: [String: AnyObject]! = nil
-            
+            //var parsedResult: [String: AnyObject]! = nil
+            var parsedResult: AnyObject! = nil
             do {
                 
-                parsedResult = try (JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String : AnyObject])!
+                parsedResult = try (JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String : AnyObject])! as AnyObject
                 print(parsedResult)
             } catch {
                 
