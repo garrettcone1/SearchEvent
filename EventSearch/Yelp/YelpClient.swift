@@ -13,8 +13,6 @@ class YelpClient: NSObject {
     
     var session = URLSession.shared
     
-    var requestToken: String? = nil
-    
     override init() {
         super.init()
     }
@@ -86,6 +84,7 @@ class YelpClient: NSObject {
                 
                 return
             }
+            
             
             completionHandlerForGET(true, eventDictionary, nil)
         }
