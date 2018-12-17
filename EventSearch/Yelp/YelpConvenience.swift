@@ -17,13 +17,13 @@ extension YelpClient {
         let coreDataStack = appDelegate.coreDataStack
         
         performuUIUpdatesOnMain {
-            YelpClient.sharedInstance().taskForGETMethod(latitude: pin.latitude, longitude: pin.longitude) { (success, data, error) in
+            YelpClient.sharedInstance().taskForGETMethod(latitude: pin.latitude, longitude: pin.longitude) { (events, error) in
                 
-                if let data = data {
+                if let events = events {
                     
-                    for item in data {
+                    for event in events {
                         
-                        let eventURL = item[Constants.YelpResponseKeys.events] as! String
+                        let eventURL = event.imageURL
                         
                         let event = Event(eventData: nil, eventURL: eventURL, context: coreDataStack.context)
                         
