@@ -30,7 +30,6 @@ class YelpClient: NSObject {
         
         let methodParameters = [
             
-            Constants.YelpParameterKeys.APIKey: Constants.YelpParameterValues.APIKey,
             Constants.YelpParameterKeys.latitute: latitude,
             Constants.YelpParameterKeys.longitude: longitude,
             Constants.YelpParameterKeys.radius: Constants.YelpParameterValues.radiusValue
@@ -40,11 +39,15 @@ class YelpClient: NSObject {
         let urlString = Constants.Yelp.APIScheme +
             Constants.Yelp.APIHost +
             Constants.Yelp.APIPath +
+            Constants.Yelp.EventsEndpoint +
             escapedParameters(methodParameters as [String: AnyObject])
         
         let url = URL(string: urlString)!
         
-        let request = NSMutableURLRequest(url: url)
+        // From Yelp documentation :
+        // To authenticate API calls with the API Key, set the Authorization HTTP header value as Bearer API_KEY.
+        var request = NSMutableURLRequest(url: url)
+        request.addValue("Bearer \(Constants.YelpParameterValues.APIKey)", forHTTPHeaderField: "Authorization")
         
         let task = session.dataTask(with: request as URLRequest) { (data, response, error) in
             
@@ -72,7 +75,7 @@ class YelpClient: NSObject {
                 sendError(nil)
                 return
             }
-
+            
             var parsedResult: [String : AnyObject]? = nil
             
             do {
@@ -90,7 +93,7 @@ class YelpClient: NSObject {
                 sendError(nil)
                 return
             }
-
+            
             if let eventDictionary = finalParsedResults[Constants.YelpResponseKeys.events] as? [[String: AnyObject]] {
                 
                 // Create an array of dictionaries containing the yelp events
