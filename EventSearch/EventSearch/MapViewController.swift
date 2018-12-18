@@ -56,6 +56,8 @@ class MapViewController: UIViewController {
             
             print(error)
         }
+        
+        addAnnotationsToMapView(objects: objects)
     }
     
     @IBAction func addPin(_ sender: UILongPressGestureRecognizer) {
@@ -119,6 +121,26 @@ class MapViewController: UIViewController {
 }
 
 extension MapViewController: MKMapViewDelegate {
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        
+        mapView.deselectAnnotation(view.annotation, animated: false)
+        
+        let latitudePredicate = NSPredicate(format: "latitude == %lf", (view.annotation?.coordinate.latitude)!)
+        let longitudePredicate = NSPredicate(format: "longitude == %lf", (view.annotation?.coordinate.longitude)!)
+        let request = NSCompoundPredicate(type: .and, subpredicates: [latitudePredicate, longitudePredicate])
+        
+        fetchedResultsController.fetchRequest.predicate = request
+        
+        do {
+            
+            try fetchedResultsController.performFetch()
+        } catch let error {
+            
+            print(error)
+        }
+        
+    }
     
     func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
         UserDefaults.standard.set(mapView.region.center.latitude, forKey: "latitudeKey")
