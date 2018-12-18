@@ -9,104 +9,104 @@
 import Foundation
 import UIKit
 
-struct YelpEvent {
-    let latitude: Double
-    let longitude: Double
-    let imageURL: String
-    let timeStart: Double
-}
-
-typealias YelpEventsClosure = ([YelpEvent]?, Error?) -> ()
-
 class YelpClient: NSObject {
     
     var session = URLSession.shared
+    
+    var requestToken: String? = nil
     
     override init() {
         super.init()
     }
     
-    func taskForGETMethod(latitude: Double, longitude: Double, completion: YelpEventsClosure?) {
+    func taskForGETMethod(latitude: Double, longitude: Double, _ completionHandlerForGET: @escaping (_ success: Bool, _ data: [[String: AnyObject]]?, _ error: NSError?) -> Void) {
         
         let methodParameters = [
-            
+        
             Constants.YelpParameterKeys.APIKey: Constants.YelpParameterValues.APIKey,
             Constants.YelpParameterKeys.latitute: latitude,
             Constants.YelpParameterKeys.longitude: longitude,
             Constants.YelpParameterKeys.radius: Constants.YelpParameterValues.radiusValue
             
-            ] as [String: Any]
+        ] as [String: Any]
         
         let urlString = Constants.Yelp.APIScheme +
-            Constants.Yelp.APIHost +
-            Constants.Yelp.APIPath +
+                Constants.Yelp.APIHost +
+                Constants.Yelp.APIPath +
             escapedParameters(methodParameters as [String: AnyObject])
         
         let url = URL(string: urlString)!
         
         let request = NSMutableURLRequest(url: url)
         
+        // Below request.addValue is a test to see if this is the correct request value for authentication
+        //request.addValue("Authorization:", forHTTPHeaderField: "Bearer \(Constants.YelpParameterValues.APIKey)")
+        
         let task = session.dataTask(with: request as URLRequest) { (data, response, error) in
             
-            func sendError(_ error: Error?) {
-                completion?(nil, error)
+            func sendError(_ error: String) {
+                
+                print(error)
+                let userInfo = [NSLocalizedDescriptionKey: error]
+                completionHandlerForGET(false, nil, NSError(domain: "taskForGETMethod", code: 1, userInfo: userInfo))
             }
             
             guard (error == nil) else {
                 
-                print("There was an error with your request: \(String(describing: error))")
-                sendError(error)
+                sendError("There was an error with your request: \(String(describing: error))")
                 return
             }
             
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
                 
-                print("Your request returned a status code other than 2xx!")
-                sendError(nil)
+                sendError("Your request returned a status code other than 2xx!")
                 return
             }
             
             guard let data = data else {
                 
-                print("No data was returned by the request!")
-                sendError(nil)
+                sendError("No data was returned by the request!")
                 return
             }
-
-            var parsedResult: [String : AnyObject]? = nil
             
+            // PARSE THE DATA HERE ***********
+            //var parsedResult: [String: AnyObject]! = nil
+            var parsedResult: AnyObject! = nil
             do {
-                parsedResult = try (JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String : AnyObject])
                 
-            } catch let error {
+                parsedResult = try (JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String : AnyObject])! as AnyObject
+                print(parsedResult)
+            } catch {
                 
-                sendError(error)
                 print("Could not parse the data as JSON: '\(data)'")
             }
             
-            guard let finalParsedResults = parsedResult else {
+            guard let _ = parsedResult[Constants.YelpResponseKeys.total] as? Int,
+                let eventDictionary = parsedResult[Constants.YelpResponseKeys.events] as? [[String: AnyObject]] else {
                 
-                print("Could not parse the data as JSON: '\(data)'")
-                sendError(nil)
                 return
             }
-
-            if let eventDictionary = finalParsedResults[Constants.YelpResponseKeys.events] as? [[String: AnyObject]] {
-                
-                // Create an array of dictionaries containing the yelp events
-                var events: [YelpEvent] = []
-                
-                eventDictionary.forEach {
-                    let event = YelpEvent(latitude: $0[Constants.YelpResponseKeys.latitude] as? Double ?? 0.0,
-                                          longitude: $0[Constants.YelpResponseKeys.longitude] as? Double ?? 0.0,
-                                          imageURL: $0[Constants.YelpResponseKeys.image] as? String ?? "",
-                                          timeStart: $0[Constants.YelpResponseKeys.date] as? Double ?? 0.0)
-                    events.append(event)
-                }
-                completion?(events, nil)
-            }
+            
+            completionHandlerForGET(true, eventDictionary, nil)
         }
+        
         task.resume()
+    }
+    
+    private func convertDataWithCompletionHandler(_ data: Data, completionHandlerForConvertData: (_ result: AnyObject?, _ error: NSError?) -> Void) {
+        
+        var parsedResult: [String: AnyObject]! = nil
+        
+        do {
+            
+            parsedResult = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String : AnyObject]
+        } catch {
+            
+            let userInfo = [NSLocalizedDescriptionKey: "Could not parse the data as JSON: '\(data)'"]
+            completionHandlerForConvertData(nil, NSError(domain: "convertDataWithCompletionHandler", code: 1, userInfo: userInfo))
+        }
+        
+        completionHandlerForConvertData(parsedResult as AnyObject, nil)
     }
     
     class func sharedInstance() -> YelpClient {
