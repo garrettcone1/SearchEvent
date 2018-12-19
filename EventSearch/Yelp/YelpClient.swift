@@ -30,21 +30,23 @@ class YelpClient: NSObject {
         
         let methodParameters = [
             
-            Constants.YelpParameterKeys.APIKey: Constants.YelpParameterValues.APIKey,
             Constants.YelpParameterKeys.latitute: latitude,
             Constants.YelpParameterKeys.longitude: longitude,
+            Constants.YelpParameterKeys.limit: Constants.YelpParameterValues.limit,
             Constants.YelpParameterKeys.radius: Constants.YelpParameterValues.radiusValue
             
-            ] as [String: Any]
+        ] as [String: Any]
         
         let urlString = Constants.Yelp.APIScheme +
             Constants.Yelp.APIHost +
             Constants.Yelp.APIPath +
+            Constants.Methods.EventsEndpoint +
             escapedParameters(methodParameters as [String: AnyObject])
         
         let url = URL(string: urlString)!
         
-        let request = NSMutableURLRequest(url: url)
+        var request = NSMutableURLRequest(url: url)
+        request.addValue("Bearer \(Constants.YelpParameterValues.APIKey)", forHTTPHeaderField: "Authorization")
         
         let task = session.dataTask(with: request as URLRequest) { (data, response, error) in
             
@@ -72,7 +74,7 @@ class YelpClient: NSObject {
                 sendError(nil)
                 return
             }
-
+            
             var parsedResult: [String : AnyObject]? = nil
             
             do {
@@ -97,7 +99,8 @@ class YelpClient: NSObject {
                 var events: [YelpEvent] = []
                 
                 eventDictionary.forEach {
-                    let event = YelpEvent(latitude: $0[Constants.YelpResponseKeys.latitude] as? Double ?? 0.0,
+                    let event = YelpEvent(
+                                          latitude: $0[Constants.YelpResponseKeys.latitude] as? Double ?? 0.0,
                                           longitude: $0[Constants.YelpResponseKeys.longitude] as? Double ?? 0.0,
                                           imageURL: $0[Constants.YelpResponseKeys.image] as? String ?? "",
                                           timeStart: $0[Constants.YelpResponseKeys.date] as? Double ?? 0.0)

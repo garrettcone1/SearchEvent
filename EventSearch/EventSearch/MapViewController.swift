@@ -51,7 +51,7 @@ class MapViewController: UIViewController {
             
             try fetchedResultsController.performFetch()
             objects = (fetchedResultsController.sections?[0].objects)!
-            print(objects!)
+            //print(objects!)
         } catch let error {
             
             print(error)

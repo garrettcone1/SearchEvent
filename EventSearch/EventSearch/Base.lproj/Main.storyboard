@@ -89,7 +89,7 @@
             </objects>
             <point key="canvasLocation" x="1561" y="-429"/>
         </scene>
-        <!--Map View Controller-->
+        <!--Event Search-->
         <scene sceneID="aNA-DA-JuA">
             <objects>
                 <viewController id="Yie-Aj-izY" customClass="MapViewController" customModule="EventSearch" customModuleProvider="target" sceneMemberID="viewController">
@@ -110,7 +110,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Qvu-aY-oQO"/>
                     </view>
-                    <navigationItem key="navigationItem" id="K3t-x2-JuP"/>
+                    <navigationItem key="navigationItem" title="Event Search" id="K3t-x2-JuP"/>
                     <connections>
                         <outlet property="mapView" destination="FbD-2e-XRa" id="5hc-dv-IJm"/>
                     </connections>
@@ -127,7 +127,6 @@
         <!--Events TableVC-->
         <scene sceneID="rDR-z1-nIs">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7j9-jv-hJX" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController storyboardIdentifier="TableVC" id="ck0-zr-2ER" customClass="EventsTableVC" customModule="EventSearch" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="EXF-dE-MDe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
@@ -152,6 +151,7 @@
                         <outlet property="eventsTableView" destination="EXF-dE-MDe" id="9ib-6d-Xpg"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7j9-jv-hJX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3129" y="-429"/>
         </scene>
