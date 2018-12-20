@@ -20,11 +20,6 @@ extension YelpClient {
             static let APIScheme = "https://"
             static let APIHost = "api.yelp.com"
             static let APIPath = "/v3"
-        
-        }
-    
-        struct Methods {
-        
             static let EventsEndpoint = "/events"
         }
     

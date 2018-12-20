@@ -40,7 +40,7 @@ class YelpClient: NSObject {
         let urlString = Constants.Yelp.APIScheme +
             Constants.Yelp.APIHost +
             Constants.Yelp.APIPath +
-            Constants.Methods.EventsEndpoint +
+            Constants.Yelp.EventsEndpoint +
             escapedParameters(methodParameters as [String: AnyObject])
         
         let url = URL(string: urlString)!
