@@ -21,11 +21,13 @@ extension YelpClient {
             static let APIHost = "api.yelp.com"
             static let APIPath = "/v3"
             static let EventsEndpoint = "/events"
+
         }
     
         struct Methods {
         
             static let events = "/events"
+
         }
     
         struct YelpParameterKeys {
@@ -36,7 +38,7 @@ extension YelpClient {
             static let latitute = "latitude"
             static let longitude = "longitude"
             static let radius = "radius"
-        
+            
         }
     
         struct YelpParameterValues {
@@ -44,6 +46,7 @@ extension YelpClient {
             static let clientID = "AY2bfS9v9dNsHxist6eRbg"
             static let APIKey = "Wor9XUTNP8575bilH5jYoVWKw6VOSkQkoB4F0WrDduW0qoEEB4lNTN58airVQz8IQN7v7p5hSZ2h8w8EmMgYfWoLnJ6nEgPknhcHIqkcq4-ZC0nFB4qUl9g4MJ_zW3Yx"
             static let radiusValue = 24000
+            static let limit = 20
         }
     
         struct YelpResponseKeys {
