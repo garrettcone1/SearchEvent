@@ -62,7 +62,9 @@ class MapViewController: UIViewController {
     
     @IBAction func addPin(_ sender: UILongPressGestureRecognizer) {
         
-        if sender.state == UIGestureRecognizer.State.began {
+        print("Inside of addPin()")
+        if sender.state == UILongPressGestureRecognizer.State.began {
+            print("UIGestureRecognizer did begin.")
             
             let location = sender.location(in: mapView)
             let coordinate = mapView.convert(location, toCoordinateFrom: mapView)
@@ -83,6 +85,9 @@ class MapViewController: UIViewController {
             }
             
             coreDataStack.save()
+        } else {
+            
+            print("UIGestureRecognizer did not begin.")
         }
     }
     

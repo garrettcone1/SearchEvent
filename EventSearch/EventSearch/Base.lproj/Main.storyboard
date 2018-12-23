@@ -99,6 +99,9 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="FbD-2e-XRa">
                                 <rect key="frame" x="0.0" y="88" width="375" height="641"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="PZ7-6j-sxj" appends="YES" id="jQb-cP-w3m"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
