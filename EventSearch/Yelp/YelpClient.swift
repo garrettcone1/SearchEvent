@@ -93,7 +93,7 @@ class YelpClient: NSObject {
                 sendError(nil)
                 return
             }
-
+            
             if let eventDictionary = finalParsedResults[Constants.YelpResponseKeys.events] as? [[String: AnyObject]] {
                 
                 // Create an array of dictionaries containing the yelp events
