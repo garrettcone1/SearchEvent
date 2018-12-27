@@ -33,7 +33,7 @@ class YelpClient: NSObject {
             Constants.YelpParameterKeys.latitute: latitude,
             Constants.YelpParameterKeys.longitude: longitude,
             Constants.YelpParameterKeys.limit: Constants.YelpParameterValues.limit,
-            //Constants.YelpParameterKeys.radius: Constants.YelpParameterValues.radiusValue
+            Constants.YelpParameterKeys.radius: Constants.YelpParameterValues.radiusValue
             
         ] as [String: Any]
         
