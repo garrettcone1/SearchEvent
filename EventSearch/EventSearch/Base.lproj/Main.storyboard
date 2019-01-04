@@ -156,7 +156,36 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7j9-jv-hJX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3129" y="-429"/>
+            <point key="canvasLocation" x="2556" y="265"/>
+        </scene>
+        <!--Events DetailVC-->
+        <scene sceneID="l8S-F1-naO">
+            <objects>
+                <viewController id="i6h-UP-xZV" customClass="EventsDetailVC" customModule="EventSearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bKg-iI-cbW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zan-rs-0WD">
+                                <rect key="frame" x="67" y="138" width="240" height="169"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="sew-dd-VWQ">
+                                <rect key="frame" x="177" y="212" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="wd2-4m-keK"/>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="sew-dd-VWQ" id="Bsr-9R-rc0"/>
+                        <outlet property="posterImage" destination="zan-rs-0WD" id="NjB-mU-ALx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CZD-cT-rC7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3080.8000000000002" y="-429.31034482758622"/>
         </scene>
     </scenes>
 </document>

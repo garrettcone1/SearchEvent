@@ -26,7 +26,7 @@ extension YelpClient {
                         let eventURL = event.imageURL
                         
                         let event = Event(eventData: nil, eventURL: eventURL, context: coreDataStack.context)
-                        
+                        print(event)
                         pin.addToEvents(event)
                         
                         coreDataStack.save()
