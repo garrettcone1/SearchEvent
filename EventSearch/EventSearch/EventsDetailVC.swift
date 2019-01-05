@@ -31,6 +31,15 @@ class EventsDetailVC: UIViewController {
         self.activityIndicator.alpha = 1.0
         self.activityIndicator.startAnimating()
         
-        
+        if let event = event {
+            
+            // Set up default UI
+            
+            // Capture the event poster image
+//            if let posterPath = event.imageURL {
+//
+//
+//            }
+        }
     }
 }

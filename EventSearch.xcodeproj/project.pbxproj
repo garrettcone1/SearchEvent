@@ -178,8 +178,8 @@
 			isa = PBXGroup;
 			children = (
 				4A1F518421B9E19800B69D28 /* MapViewController.swift */,
-				4A1F518A21DF22EC00B69D28 /* EventsDetailVC.swift */,
 				4A1F518821C36A7800B69D28 /* EventsTableVC.swift */,
+				4A1F518A21DF22EC00B69D28 /* EventsDetailVC.swift */,
 				4A1F518621C0834F00B69D28 /* FeaturedViewController.swift */,
 				4A1F513E219BA74500B69D28 /* Main.storyboard */,
 				4A1F5141219BA74700B69D28 /* Assets.xcassets */,
