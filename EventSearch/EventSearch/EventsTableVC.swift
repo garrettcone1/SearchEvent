@@ -16,8 +16,6 @@ class EventsTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     // Outlets
     @IBOutlet var eventsTableView: UITableView!
-    @IBOutlet weak var posterImageView: UIImageView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +58,7 @@ class EventsTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         let delegate = UIApplication.shared.delegate as! AppDelegate
         let coreDataStack = delegate.coreDataStack
         
-        let cell = eventsTableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath)
+        let cell = eventsTableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
         
         let event = fetchedResultsController.object(at: indexPath)
         
@@ -68,6 +66,7 @@ class EventsTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             
             
         }
+        
         
         return cell
     }

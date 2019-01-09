@@ -136,7 +136,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableViewCell" rowHeight="113" id="lbQ-XW-7Be" customClass="EventsTableViewCell" customModule="EventSearch" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableViewCell" rowHeight="113" id="lbQ-XW-7Be" customClass="TableViewCell" customModule="EventSearch" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="113"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lbQ-XW-7Be" id="BJT-jQ-Ynu">
@@ -153,6 +153,10 @@
                                         </activityIndicatorView>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="activityIndicator" destination="d7o-a8-9VZ" id="w4l-4a-FWj"/>
+                                    <outlet property="posterImageView" destination="5hp-mJ-F6D" id="nVq-Bb-hqj"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -161,14 +165,12 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <outlet property="activityIndicator" destination="d7o-a8-9VZ" id="gtg-ll-XU6"/>
                         <outlet property="eventsTableView" destination="EXF-dE-MDe" id="9ib-6d-Xpg"/>
-                        <outlet property="posterImageView" destination="5hp-mJ-F6D" id="1mc-Bz-780"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7j9-jv-hJX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3096.8000000000002" y="-429.31034482758622"/>
+            <point key="canvasLocation" x="3076" y="-429"/>
         </scene>
         <!--Events DetailVC-->
         <scene sceneID="l8S-F1-naO">
@@ -197,7 +199,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CZD-cT-rC7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3842" y="-429"/>
+            <point key="canvasLocation" x="3810" y="-429"/>
         </scene>
     </scenes>
 </document>

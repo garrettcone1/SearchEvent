@@ -27,6 +27,7 @@
 		4A1F518721C0834F00B69D28 /* FeaturedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F518621C0834F00B69D28 /* FeaturedViewController.swift */; };
 		4A1F518921C36A7800B69D28 /* EventsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F518821C36A7800B69D28 /* EventsTableVC.swift */; };
 		4A1F518B21DF22EC00B69D28 /* EventsDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F518A21DF22EC00B69D28 /* EventsDetailVC.swift */; };
+		4A1F518F21E6993C00B69D28 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F518E21E6993C00B69D28 /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		4A1F518621C0834F00B69D28 /* FeaturedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedViewController.swift; sourceTree = "<group>"; };
 		4A1F518821C36A7800B69D28 /* EventsTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsTableVC.swift; sourceTree = "<group>"; };
 		4A1F518A21DF22EC00B69D28 /* EventsDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsDetailVC.swift; sourceTree = "<group>"; };
+		4A1F518E21E6993C00B69D28 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 			children = (
 				4A1F518421B9E19800B69D28 /* MapViewController.swift */,
 				4A1F518821C36A7800B69D28 /* EventsTableVC.swift */,
+				4A1F518E21E6993C00B69D28 /* TableViewCell.swift */,
 				4A1F518A21DF22EC00B69D28 /* EventsDetailVC.swift */,
 				4A1F518621C0834F00B69D28 /* FeaturedViewController.swift */,
 				4A1F513E219BA74500B69D28 /* Main.storyboard */,
@@ -320,6 +323,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A1F5174219C104C00B69D28 /* YelpConstants.swift in Sources */,
+				4A1F518F21E6993C00B69D28 /* TableViewCell.swift in Sources */,
 				4A1F517D21ABA45400B69D28 /* Pin+CoreDataClass.swift in Sources */,
 				4A1F516E219C067300B69D28 /* YelpClient.swift in Sources */,
 				4A1F517F21ABA50500B69D28 /* Pin+CoreDataProperties.swift in Sources */,
