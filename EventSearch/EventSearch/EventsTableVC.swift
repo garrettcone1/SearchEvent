@@ -21,6 +21,8 @@ class EventsTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         super.viewDidLoad()
         
         parent!.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
+        
+        try! fetchedResultsController.performFetch()
     }
     
     lazy var fetchedResultsController: NSFetchedResultsController <Event> = {
@@ -45,12 +47,12 @@ class EventsTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        guard let sections = fetchedResultsController.sections?[section] else {
+        guard let items = fetchedResultsController.fetchedObjects?.count else {
             
             return 0
         }
         
-        return sections.numberOfObjects
+        return items
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -60,12 +62,12 @@ class EventsTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         
         let cell = eventsTableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
         
-        let event = fetchedResultsController.object(at: indexPath)
+        //let event = fetchedResultsController.object(at: indexPath)
         
-        if let eventData = event.eventData {
+        //if let eventData = event.eventData {
             
-            
-        }
+            cell.textLabel?.text = "test"
+        //}
         
         
         return cell
