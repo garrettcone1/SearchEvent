@@ -91,6 +91,15 @@ class MapViewController: UIViewController {
         }
     }
     
+    public func switchToTableVC(pin: Pin) {
+        
+        let controller = self.storyboard?.instantiateViewController(withIdentifier: "TableVC") as! EventsTableVC
+        
+        controller.pin = pin
+        
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
     public func addAnnotationsToMapView(objects: [Any]?) {
         
         if let objects = objects {
@@ -145,6 +154,9 @@ extension MapViewController: MKMapViewDelegate {
             print(error)
         }
         
+        let pin = fetchedResultsController.sections?[0].objects?[0] as! Pin
+        
+        switchToTableVC(pin: pin)
     }
     
     func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
