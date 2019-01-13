@@ -62,13 +62,37 @@ class EventsTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         
         let cell = eventsTableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
         
-        //let event = fetchedResultsController.object(at: indexPath)
+        let event = fetchedResultsController.object(at: indexPath)
         
-        //if let eventData = event.eventData {
+        if let eventData = event.eventData {
             
-            cell.textLabel?.text = "test"
-        //}
-        
+            performuUIUpdatesOnMain {
+                cell.textLabel?.text = "test"
+                cell.imageView?.image = UIImage(data: eventData as Data)
+            }
+        } else {
+            
+            performuUIUpdatesOnMain {
+                cell.activityIndicator.startAnimating()
+            }
+            
+            YelpClient.sharedInstance().downloadImage(imagePath: event.eventURL!) { (imageData, error) in
+                
+                guard error == nil else {
+                    
+                    print("An error occurred while loading the photo from the URL: \(String(describing: error))")
+                    return
+                }
+                
+                event.eventData = imageData as NSData?
+                coreDataStack.save()
+                
+                performuUIUpdatesOnMain {
+                    cell.activityIndicator.hidesWhenStopped = true
+                    cell.activityIndicator.stopAnimating()
+                }
+            }
+        }
         
         return cell
     }
