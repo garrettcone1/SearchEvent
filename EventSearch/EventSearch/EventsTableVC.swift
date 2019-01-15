@@ -20,7 +20,7 @@ class EventsTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        parent!.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
+        navigationItem.title = "Events Nearby"
         
         try! fetchedResultsController.performFetch()
     }
@@ -67,6 +67,7 @@ class EventsTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         if let eventData = event.eventData {
             
             performuUIUpdatesOnMain {
+                
                 cell.textLabel?.text = "test"
                 cell.imageView?.image = UIImage(data: eventData as Data)
             }
@@ -97,8 +98,4 @@ class EventsTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         return cell
     }
     
-    @objc func done() {
-        
-        dismiss(animated: true, completion: nil)
-    }
 }

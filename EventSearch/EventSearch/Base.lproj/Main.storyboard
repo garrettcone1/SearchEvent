@@ -143,19 +143,36 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="112.66666666666667"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5hp-mJ-F6D">
-                                            <rect key="frame" x="16" y="12" width="95" height="90"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5hp-mJ-F6D">
+                                            <rect key="frame" x="16" y="12" width="95.666666666666671" height="90"/>
                                         </imageView>
-                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="d7o-a8-9VZ">
-                                            <rect key="frame" x="53" y="47" width="20" height="20"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="d7o-a8-9VZ">
+                                            <rect key="frame" x="177.66666666666666" y="47" width="20" height="20"/>
                                         </activityIndicatorView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvW-zc-W64">
+                                            <rect key="frame" x="119.66666666666667" y="35" width="239.33333333333331" height="44"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="5hp-mJ-F6D" firstAttribute="top" secondItem="BJT-jQ-Ynu" secondAttribute="topMargin" constant="1" id="5du-kd-u23"/>
+                                        <constraint firstItem="uvW-zc-W64" firstAttribute="centerY" secondItem="d7o-a8-9VZ" secondAttribute="centerY" id="6fr-7M-npJ"/>
+                                        <constraint firstItem="uvW-zc-W64" firstAttribute="leading" secondItem="5hp-mJ-F6D" secondAttribute="trailing" constant="8" id="Iq5-Cg-gLh"/>
+                                        <constraint firstItem="uvW-zc-W64" firstAttribute="top" secondItem="BJT-jQ-Ynu" secondAttribute="topMargin" constant="24" id="Lpg-mU-Wm4"/>
+                                        <constraint firstItem="5hp-mJ-F6D" firstAttribute="leading" secondItem="BJT-jQ-Ynu" secondAttribute="leadingMargin" id="eLL-ZG-hJw"/>
+                                        <constraint firstItem="d7o-a8-9VZ" firstAttribute="centerX" secondItem="BJT-jQ-Ynu" secondAttribute="centerX" id="jXx-aD-Xp8"/>
+                                        <constraint firstItem="uvW-zc-W64" firstAttribute="trailing" secondItem="BJT-jQ-Ynu" secondAttribute="trailingMargin" id="kkV-0S-Fpb"/>
+                                        <constraint firstItem="5hp-mJ-F6D" firstAttribute="bottom" secondItem="BJT-jQ-Ynu" secondAttribute="bottomMargin" id="oFW-y0-Qlh"/>
+                                        <constraint firstItem="d7o-a8-9VZ" firstAttribute="leading" secondItem="5hp-mJ-F6D" secondAttribute="trailing" constant="66" id="pWE-Q3-j0V"/>
+                                        <constraint firstItem="uvW-zc-W64" firstAttribute="centerY" secondItem="5hp-mJ-F6D" secondAttribute="centerY" id="vqe-u0-jwP"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="activityIndicator" destination="d7o-a8-9VZ" id="w4l-4a-FWj"/>
                                     <outlet property="posterImageView" destination="5hp-mJ-F6D" id="nVq-Bb-hqj"/>
+                                    <outlet property="titleOfEvent" destination="uvW-zc-W64" id="ObW-CC-o0t"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -170,7 +187,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7j9-jv-hJX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3076" y="-429"/>
+            <point key="canvasLocation" x="3076" y="-429.31034482758622"/>
         </scene>
         <!--Events DetailVC-->
         <scene sceneID="l8S-F1-naO">
