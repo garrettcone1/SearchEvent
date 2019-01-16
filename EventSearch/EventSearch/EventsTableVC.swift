@@ -37,7 +37,6 @@ class EventsTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         
         let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchedRequest, managedObjectContext: coreDataStack.context, sectionNameKeyPath: nil, cacheName: nil)
         
-        // Double check this
         fetchedResultsController.delegate = self as? NSFetchedResultsControllerDelegate
         
         eventsTableView.reloadData()
