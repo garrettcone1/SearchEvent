@@ -12,7 +12,7 @@ import UIKit
 class EventsDetailVC: UIViewController {
     
     // Properties
-    var event: YelpEvent?
+    //var event: YelpEvent?
     var isFavorite = false
     
     // Outlets
@@ -31,15 +31,10 @@ class EventsDetailVC: UIViewController {
         self.activityIndicator.alpha = 1.0
         self.activityIndicator.startAnimating()
         
-        if let event = event {
-            
-            // Set up default UI
-            
-            // Capture the event poster image
-//            if let posterPath = event.imageURL {
+//        if let event = event {
 //
+//            // Set up default UI
 //
-//            }
-        }
+//        }
     }
 }

@@ -67,9 +67,10 @@ class EventsTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         if let eventData = event.eventData {
             
             performuUIUpdatesOnMain {
-                
+                    
                 cell.textLabel?.text = "test"
                 cell.imageView?.image = UIImage(data: eventData as Data)
+                cell.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
             }
         } else {
             
@@ -96,6 +97,20 @@ class EventsTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        // Pass data to the EventsDetailVC
+        //let event = fetchedResultsController.object(at: indexPath)
+        let controller = storyboard!.instantiateViewController(withIdentifier: "EventsDetailVC") as! EventsDetailVC
+        
+        navigationController!.pushViewController(controller, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return 85
     }
     
 }
