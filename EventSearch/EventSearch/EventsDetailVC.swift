@@ -14,7 +14,7 @@ class EventsDetailVC: UIViewController {
     // Properties
     var event: Event?
     var isFavorite = false
-    
+    var event: Event?
     // Outlets
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
