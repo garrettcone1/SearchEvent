@@ -12,7 +12,7 @@ import UIKit
 class EventsDetailVC: UIViewController {
     
     // Properties
-    //var event: YelpEvent?
+    var event: Event?
     var isFavorite = false
     
     // Outlets

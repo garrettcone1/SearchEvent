@@ -102,8 +102,9 @@ class EventsTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         // Pass data to the EventsDetailVC
-        //let event = fetchedResultsController.object(at: indexPath)
+        let event = fetchedResultsController.object(at: indexPath)
         let controller = storyboard!.instantiateViewController(withIdentifier: "EventsDetailVC") as! EventsDetailVC
+        controller.event = event
         
         navigationController!.pushViewController(controller, animated: true)
     }
