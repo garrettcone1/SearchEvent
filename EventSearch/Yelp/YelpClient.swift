@@ -14,6 +14,7 @@ struct YelpEvent {
     let longitude: Double
     let imageURL: String
     let timeStart: Double
+    let titleOfEvent: String
 }
 
 typealias YelpEventsClosure = ([YelpEvent]?, Error?) -> ()
@@ -104,7 +105,10 @@ class YelpClient: NSObject {
                                           latitude: $0[Constants.YelpResponseKeys.latitude] as? Double ?? 0.0,
                                           longitude: $0[Constants.YelpResponseKeys.longitude] as? Double ?? 0.0,
                                           imageURL: $0[Constants.YelpResponseKeys.image] as? String ?? "",
-                                          timeStart: $0[Constants.YelpResponseKeys.date] as? Double ?? 0.0)
+                                          timeStart: $0[Constants.YelpResponseKeys.date] as? Double ?? 0.0,
+                                          titleOfEvent: $0[Constants.YelpResponseKeys.name] as? String ?? ""
+                    )
+                    
                     events.append(event)
                 }
                 completion?(events, nil)

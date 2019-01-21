@@ -68,6 +68,7 @@ class EventsTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             performuUIUpdatesOnMain {
                     
                 cell.textLabel?.text = "test"
+                //cell.titleOfEvent.text = event.eventURL
                 cell.imageView?.image = UIImage(data: eventData as Data)
                 cell.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
             }
