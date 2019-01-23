@@ -14,7 +14,7 @@ class EventsDetailVC: UIViewController {
     // Properties
     var event: Event?
     var isFavorite = false
-    var event: Event?
+    
     // Outlets
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -28,13 +28,13 @@ class EventsDetailVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.activityIndicator.alpha = 1.0
-        self.activityIndicator.startAnimating()
+        //self.activityIndicator.alpha = 1.0
+        //self.activityIndicator.startAnimating()
+        populateDetailView()
+    }
+    
+    func populateDetailView() {
         
-//        if let event = event {
-//
-//            // Set up default UI
-//
-//        }
+        // Set up default UI and populate views with data
     }
 }

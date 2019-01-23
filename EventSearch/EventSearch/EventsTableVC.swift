@@ -100,28 +100,12 @@ class EventsTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-<<<<<<< HEAD
+
         // Pass data to the EventsDetailVC
         let event = fetchedResultsController.object(at: indexPath)
-        let controller = storyboard!.instantiateViewController(withIdentifier: "EventsDetailVC") as! EventsDetailVC
-        controller.event = event
-||||||| merged common ancestors
-        // Pass data to the EventsDetailVC
-        //let event = fetchedResultsController.object(at: indexPath)
-        let controller = storyboard!.instantiateViewController(withIdentifier: "EventsDetailVC") as! EventsDetailVC
-=======
-        let event = fetchedResultsController.object(at: indexPath)
-        
-        // there are a few ways to do that here
-        // - init your view controller with your objedt
-        // - expose a property in your view controller that will refresh the layout on did set
-        // I personally like the init method. Maintains separation of concerns, since ultimately the event you're displaying in the details view controller should only be private.
-        // But since you're using storyboards, we have to go the other route
->>>>>>> 6df8b990d3ad60a007c8fa0b28f22bff9ecce5b3
-        
         let controller =  storyboard!.instantiateViewController(withIdentifier: "EventsDetailVC") as! EventsDetailVC
         controller.event = event
+        
         navigationController!.pushViewController(controller, animated: true)
     }
     
