@@ -19,6 +19,9 @@ class EventsDetailVC: UIViewController {
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    @IBOutlet weak var dateLogo: UIImageView!
+    @IBOutlet weak var locationLogo: UIImageView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,5 +39,16 @@ class EventsDetailVC: UIViewController {
     func populateDetailView() {
         
         // Set up default UI and populate views with data
+        self.dateLogo.image = UIImage(named: "date")
+        self.locationLogo.image = UIImage(named: "location")
+        
+        if let eventImage = event?.eventData {
+            
+            performuUIUpdatesOnMain {
+                self.posterImage.image = UIImage(data: eventImage as Data)
+                self.activityIndicator.stopAnimating()
+                self.activityIndicator.isHidden = true
+            }
+        }
     }
 }
