@@ -58,6 +58,11 @@ extension YelpClient {
             static let longitude = "longitude"
             static let name = "name"
             static let date = "time_start"
+            static let about = "description"
+            
+            // Address
+            static let address = "location"
+            static let displayAddress = "display_address"
         }
     }
 }

@@ -19,4 +19,9 @@ extension Event {
     @NSManaged public var eventData: NSData?
     @NSManaged public var eventURL: String?
     @NSManaged public var pin: Pin?
+    
+    @NSManaged public var eventAbout: String?
+    @NSManaged public var eventAddress: String?
+    @NSManaged public var eventDate: String?
+    @NSManaged public var eventTitle: String?
 }

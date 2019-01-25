@@ -18,7 +18,12 @@ class EventsDetailVC: UIViewController {
     // Outlets
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var eventTitle: UILabel!
+    @IBOutlet weak var eventDate: UILabel!
+    @IBOutlet weak var eventAddress: UILabel!
+    @IBOutlet weak var eventDescription: UILabel!
     
+    // Logos
     @IBOutlet weak var dateLogo: UIImageView!
     @IBOutlet weak var locationLogo: UIImageView!
     
@@ -31,8 +36,6 @@ class EventsDetailVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        //self.activityIndicator.alpha = 1.0
-        //self.activityIndicator.startAnimating()
         populateDetailView()
     }
     
@@ -46,6 +49,11 @@ class EventsDetailVC: UIViewController {
             
             performuUIUpdatesOnMain {
                 self.posterImage.image = UIImage(data: eventImage as Data)
+                self.eventTitle.text = self.event?.eventTitle
+                self.eventDate.text = self.event?.eventDate
+                self.eventAddress.text = self.event?.eventAddress
+                self.eventDescription.text = self.event?.eventAbout
+                
                 self.activityIndicator.stopAnimating()
                 self.activityIndicator.isHidden = true
             }

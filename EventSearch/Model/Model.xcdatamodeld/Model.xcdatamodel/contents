@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18A391" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18C54" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Event" representedClassName="Event" syncable="YES">
+        <attribute name="eventAbout" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="eventAddress" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="eventData" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="eventDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="eventTitle" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="eventURL" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="pin" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pin" inverseName="events" inverseEntity="Pin" syncable="YES"/>
     </entity>
@@ -12,7 +16,7 @@
         <relationship name="events" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Event" inverseName="pin" inverseEntity="Event" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Event" positionX="239.99609375" positionY="-61.828125" width="128" height="90"/>
+        <element name="Event" positionX="239.99609375" positionY="-61.828125" width="128" height="150"/>
         <element name="Pin" positionX="44.86328125" positionY="-93.14453125" width="128" height="105"/>
     </elements>
 </model>
