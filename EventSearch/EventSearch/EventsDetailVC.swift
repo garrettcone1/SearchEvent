@@ -23,10 +23,8 @@ class EventsDetailVC: UIViewController {
     @IBOutlet weak var eventAddress: UILabel!
     @IBOutlet weak var eventDescription: UILabel!
     
-    
     // Test for scrollview
     @IBOutlet weak var aboutScrollView: UIScrollView!
-    
     
     // Logos
     @IBOutlet weak var dateLogo: UIImageView!

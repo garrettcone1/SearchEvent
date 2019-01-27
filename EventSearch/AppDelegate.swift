@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         // Loads the launch image a little slower to view it longer
-        sleep(5)
+        sleep(3)
         
         checkIfFirstLaunch()
         

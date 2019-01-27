@@ -29,7 +29,6 @@ extension YelpClient {
                         let eventDate = event.eventDate
                         let eventTitle = event.eventTitle
                         
-                        //let event = Event(eventData: nil, eventURL: eventURL, context: coreDataStack.context)
                         let event = Event(eventData: nil, eventURL: eventURL, eventAbout: eventAbout, eventAddress: eventAddress, eventDate: eventDate, eventTitle: eventTitle, context: coreDataStack.context)
                         
                         print(event)
