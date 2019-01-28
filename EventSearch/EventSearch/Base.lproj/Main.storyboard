@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="90h-ef-Ma1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="b4W-TK-nbW">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,74 +10,12 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Featured View Controller-->
-        <scene sceneID="h8O-mP-mSX">
-            <objects>
-                <viewController id="esX-pa-ByV" customClass="FeaturedViewController" customModule="EventSearch" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="sae-76-Pdb">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JqT-jC-nTq">
-                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <color key="barTintColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <textAttributes key="titleTextAttributes">
-                                    <fontDescription key="fontDescription" type="italicSystem" pointSize="28"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="textShadowColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </textAttributes>
-                                <items>
-                                    <navigationItem title="Event Search" id="t7v-7K-jA4"/>
-                                </items>
-                            </navigationBar>
-                            <view alpha="0.75" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hCc-3X-kUl">
-                                <rect key="frame" x="0.0" y="138" width="375" height="155"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="LiA-9x-81b">
-                                <rect key="frame" x="168" y="301" width="39" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </pageControl>
-                        </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Et-oU-GFj"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" systemItem="featured" id="uuY-gx-fTL"/>
-                    <connections>
-                        <outlet property="pageControl" destination="LiA-9x-81b" id="fAv-xX-DeQ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9GH-UD-l2B" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1887" y="265"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="Cg1-gW-NFb">
-            <objects>
-                <tabBarController storyboardIdentifier="EventTabController" id="90h-ef-Ma1" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fOW-fa-RLT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="esX-pa-ByV" kind="relationship" relationship="viewControllers" id="NrC-D5-Ev5"/>
-                        <segue destination="b4W-TK-nbW" kind="relationship" relationship="viewControllers" id="48G-QE-gml"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LcK-dl-sH0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="782" y="23"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="nbX-rN-I2f">
             <objects>
                 <navigationController id="b4W-TK-nbW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="search" id="jfx-o8-P5a"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9ny-zr-2Wf">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -97,7 +35,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="FbD-2e-XRa">
-                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="724"/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="PZ7-6j-sxj" appends="YES" id="jQb-cP-w3m"/>
                                 </connections>
@@ -107,13 +45,20 @@
                         <constraints>
                             <constraint firstItem="FbD-2e-XRa" firstAttribute="top" secondItem="Qvu-aY-oQO" secondAttribute="top" id="5g8-R9-4p5"/>
                             <constraint firstItem="FbD-2e-XRa" firstAttribute="leading" secondItem="Qvu-aY-oQO" secondAttribute="leading" id="Bz5-Rk-DBr"/>
-                            <constraint firstAttribute="bottom" secondItem="FbD-2e-XRa" secondAttribute="bottom" constant="83" id="QOh-3e-IVA"/>
+                            <constraint firstAttribute="bottom" secondItem="FbD-2e-XRa" secondAttribute="bottom" id="QOh-3e-IVA"/>
                             <constraint firstItem="FbD-2e-XRa" firstAttribute="trailing" secondItem="Qvu-aY-oQO" secondAttribute="trailing" id="Y5t-hx-ezv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Qvu-aY-oQO"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Event Search" id="K3t-x2-JuP"/>
+                    <navigationItem key="navigationItem" title="Event Search" id="K3t-x2-JuP">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="H5v-Td-BEk">
+                            <connections>
+                                <action selector="deletePin:" destination="Yie-Aj-izY" id="tu7-cc-WZL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="deletePinButton" destination="H5v-Td-BEk" id="XYA-Tj-juI"/>
                         <outlet property="mapView" destination="FbD-2e-XRa" id="5hc-dv-IJm"/>
                     </connections>
                 </viewController>
@@ -124,7 +69,7 @@
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2356" y="-429"/>
+            <point key="canvasLocation" x="2356" y="-429.31034482758622"/>
         </scene>
         <!--Events TableVC-->
         <scene sceneID="rDR-z1-nIs">

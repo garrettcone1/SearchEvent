@@ -14,8 +14,11 @@ import CoreData
 class MapViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var deletePinButton: UIBarButtonItem!
     
     var coreDataController: CoreDataStack!
+    
+    var didTapEditMode = false
     
     lazy var fetchedResultsController: NSFetchedResultsController <NSFetchRequestResult> = {
         
@@ -51,7 +54,7 @@ class MapViewController: UIViewController {
             
             try fetchedResultsController.performFetch()
             objects = (fetchedResultsController.sections?[0].objects)!
-            //print(objects!)
+            
         } catch let error {
             
             print(error)
@@ -91,10 +94,24 @@ class MapViewController: UIViewController {
         }
     }
     
+    @IBAction func deletePin(_ sender: Any) {
+        
+        if deletePinButton.title == "Edit" {
+            
+            // Add delete label below to let user know they are in delete pins mode
+            
+            deletePinButton.title = "Done"
+            didTapEditMode = true
+        } else {
+            
+            deletePinButton.title = "Edit"
+            didTapEditMode = false
+        }
+    }
+    
     public func switchToTableVC(pin: Pin) {
         
         let controller = self.storyboard?.instantiateViewController(withIdentifier: "TableVC") as! EventsTableVC
-        
         controller.pin = pin
         
         self.navigationController?.pushViewController(controller, animated: true)
@@ -140,23 +157,70 @@ extension MapViewController: MKMapViewDelegate {
         
         mapView.deselectAnnotation(view.annotation, animated: false)
         
-        let latitudePredicate = NSPredicate(format: "latitude == %lf", (view.annotation?.coordinate.latitude)!)
-        let longitudePredicate = NSPredicate(format: "longitude == %lf", (view.annotation?.coordinate.longitude)!)
-        let request = NSCompoundPredicate(type: .and, subpredicates: [latitudePredicate, longitudePredicate])
-        
-        fetchedResultsController.fetchRequest.predicate = request
-        
-        do {
+        if didTapEditMode == false {
             
-            try fetchedResultsController.performFetch()
-        } catch let error {
+            let latitudePredicate = NSPredicate(format: "latitude == %lf", (view.annotation?.coordinate.latitude)!)
+            let longitudePredicate = NSPredicate(format: "longitude == %lf", (view.annotation?.coordinate.longitude)!)
+            let request = NSCompoundPredicate(type: .and, subpredicates: [latitudePredicate, longitudePredicate])
             
-            print(error)
+            fetchedResultsController.fetchRequest.predicate = request
+            
+            do {
+                
+                try fetchedResultsController.performFetch()
+            } catch let error {
+                
+                print(error)
+            }
+            
+            let pin = fetchedResultsController.sections?[0].objects?[0] as! Pin
+            
+            switchToTableVC(pin: pin)
+
+        } else if didTapEditMode == true {
+            
+            let latitudePredicate = NSPredicate(format: "latitude == %lf", (view.annotation?.coordinate.latitude)!)
+            let longitudePredicate = NSPredicate(format: "longitude == %lf", (view.annotation?.coordinate.longitude)!)
+            let request = NSCompoundPredicate(type: .and, subpredicates: [latitudePredicate, longitudePredicate])
+            
+            fetchedResultsController.fetchRequest.predicate = request
+            
+            do {
+                
+                try fetchedResultsController.performFetch()
+            } catch let error {
+                
+                print(error)
+            }
+            
+            let pin = fetchedResultsController.sections?[0].objects?[0] as! Pin
+            
+            coreDataController.context.delete(pin)
+            //coreDataController.context.delete(pin)
+            try? coreDataController.context.save()
+                    
+            performuUIUpdatesOnMain {
+                self.mapView.removeAnnotation(view.annotation!)
+            }
         }
         
-        let pin = fetchedResultsController.sections?[0].objects?[0] as! Pin
-        
-        switchToTableVC(pin: pin)
+//        let latitudePredicate = NSPredicate(format: "latitude == %lf", (view.annotation?.coordinate.latitude)!)
+//        let longitudePredicate = NSPredicate(format: "longitude == %lf", (view.annotation?.coordinate.longitude)!)
+//        let request = NSCompoundPredicate(type: .and, subpredicates: [latitudePredicate, longitudePredicate])
+//
+//        fetchedResultsController.fetchRequest.predicate = request
+//
+//        do {
+//
+//            try fetchedResultsController.performFetch()
+//        } catch let error {
+//
+//            print(error)
+//        }
+//
+//        let pin = fetchedResultsController.sections?[0].objects?[0] as! Pin
+//
+//        switchToTableVC(pin: pin)
     }
     
     func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
