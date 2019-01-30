@@ -15,6 +15,7 @@ class MapViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var deletePinButton: UIBarButtonItem!
+    @IBOutlet weak var deletePinsLabel: UILabel!
     
     var coreDataController: CoreDataStack!
     
@@ -116,12 +117,12 @@ class MapViewController: UIViewController {
         
         if deletePinButton.title == "Edit" {
             
-            // Add delete label below to let user know they are in delete pins mode
-            
+            // Add delete label below to let user know they are in "delete pins" mode
+            deletePinsLabel.isHidden = false
             deletePinButton.title = "Done"
             didTapEditMode = true
         } else {
-            
+            deletePinsLabel.isHidden = true
             deletePinButton.title = "Edit"
             didTapEditMode = false
         }
