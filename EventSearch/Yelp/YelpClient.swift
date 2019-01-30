@@ -104,6 +104,10 @@ class YelpClient: NSObject {
                 var events: [YelpEvent] = []
                 
                 eventDictionary.forEach {
+                    
+                    let add = $0[Constants.YelpResponseKeys.address] as? [String: Any]
+                    let addr = add?["display_address"] as? [String]
+                    
                     let event = YelpEvent(
                                           latitude: $0[Constants.YelpResponseKeys.latitude] as? Double ?? 0.0,
                                           longitude: $0[Constants.YelpResponseKeys.longitude] as? Double ?? 0.0,
@@ -111,7 +115,7 @@ class YelpClient: NSObject {
                                           timeStart: $0[Constants.YelpResponseKeys.date] as? Double ?? 0.0,
                                           eventTitle: $0[Constants.YelpResponseKeys.name] as? String ?? "",
                                           eventAbout: $0[Constants.YelpResponseKeys.about] as? String ?? "",
-                                          eventAddress: $0[Constants.YelpResponseKeys.address] as? String ?? "",
+                                          eventAddress: addr?[0] ?? "",
                                           eventDate: $0[Constants.YelpResponseKeys.date] as? String ?? ""
                     )
                     
