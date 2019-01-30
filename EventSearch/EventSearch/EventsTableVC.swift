@@ -89,10 +89,12 @@ class EventsTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         } else {
             
             performuUIUpdatesOnMain {
+                print("Start load index: ")
+                print(indexPath.row)
                 cell.activityIndicator.startAnimating()
             }
             
-            YelpClient.sharedInstance().downloadImage(imagePath: event.eventURL!) { (imageData, error) in
+            YelpClient.sharedInstance().downloadImage(imagePath: event.eventURL!, indexPath: indexPath) { (imageData, error, index) in
                 
                 guard error == nil else {
                     
@@ -104,6 +106,8 @@ class EventsTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
                 coreDataStack.save()
                 
                 performuUIUpdatesOnMain {
+                    print("Finishing load index: ")
+                    print(index.row)
                     cell.activityIndicator.hidesWhenStopped = true
                     cell.activityIndicator.stopAnimating()
                 }

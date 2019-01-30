@@ -127,7 +127,7 @@ class YelpClient: NSObject {
         task.resume()
     }
     
-    public func downloadImage( imagePath: String, completionHandler: @escaping (_ imageData: Data?, _ errorString: String?) -> Void) {
+    public func downloadImage( imagePath: String, indexPath: IndexPath, completionHandler: @escaping (_ imageData: Data?, _ errorString: String?, _ indexPath: IndexPath) -> Void) {
         
         let session = URLSession.shared
         let imgURL = NSURL(string: imagePath)
@@ -137,10 +137,10 @@ class YelpClient: NSObject {
             
             if downloadError != nil {
                 
-                completionHandler(nil, "Could not download image \(imagePath)")
+                completionHandler(nil, "Could not download image \(imagePath)", indexPath)
             } else {
                 
-                completionHandler(data, nil)
+                completionHandler(data, nil, indexPath)
             }
         }
         
