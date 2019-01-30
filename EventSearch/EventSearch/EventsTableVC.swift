@@ -25,6 +25,21 @@ class EventsTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         try! fetchedResultsController.performFetch()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        
+        if CheckInternet.Connection() == false {
+            
+            alertMessage(message: "You are not connected to the internet.")
+        }
+    }
+    
+    public func alertMessage(message: String) {
+        
+        let alert = UIAlertController(title: "Uh oh!", message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Okay", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     lazy var fetchedResultsController: NSFetchedResultsController <Event> = {
         
         let delegate = UIApplication.shared.delegate as! AppDelegate

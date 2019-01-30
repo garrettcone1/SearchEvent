@@ -27,6 +27,7 @@
 		4A1F518921C36A7800B69D28 /* EventsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F518821C36A7800B69D28 /* EventsTableVC.swift */; };
 		4A1F518B21DF22EC00B69D28 /* EventsDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F518A21DF22EC00B69D28 /* EventsDetailVC.swift */; };
 		4A1F518F21E6993C00B69D28 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F518E21E6993C00B69D28 /* TableViewCell.swift */; };
+		4AD2CB9C22011BB400E79CAD /* CheckInternet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD2CB9B22011BB400E79CAD /* CheckInternet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		4A1F518821C36A7800B69D28 /* EventsTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsTableVC.swift; sourceTree = "<group>"; };
 		4A1F518A21DF22EC00B69D28 /* EventsDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsDetailVC.swift; sourceTree = "<group>"; };
 		4A1F518E21E6993C00B69D28 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		4AD2CB9B22011BB400E79CAD /* CheckInternet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInternet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 			children = (
 				4A1F513A219BA74500B69D28 /* AppDelegate.swift */,
 				4A1F516B219BADA300B69D28 /* GCDBlackBox.swift */,
+				4AD2CB9B22011BB400E79CAD /* CheckInternet.swift */,
 				4A1F5146219BA74700B69D28 /* Info.plist */,
 				4A1F5168219BA81100B69D28 /* Model */,
 				4A1F5169219BAD5800B69D28 /* Yelp */,
@@ -324,6 +327,7 @@
 				4A1F517D21ABA45400B69D28 /* Pin+CoreDataClass.swift in Sources */,
 				4A1F516E219C067300B69D28 /* YelpClient.swift in Sources */,
 				4A1F517F21ABA50500B69D28 /* Pin+CoreDataProperties.swift in Sources */,
+				4AD2CB9C22011BB400E79CAD /* CheckInternet.swift in Sources */,
 				4A1F517B21A5BC4500B69D28 /* CoreDataStack.swift in Sources */,
 				4A1F518321ABA60200B69D28 /* Event+CoreDataProperties.swift in Sources */,
 				4A1F518B21DF22EC00B69D28 /* EventsDetailVC.swift in Sources */,
