@@ -22,7 +22,12 @@ class EventsTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         
         navigationItem.title = "Events Nearby"
         
-        try! fetchedResultsController.performFetch()
+        //try! fetchedResultsController.performFetch()
+        fetchData()
+        
+        performuUIUpdatesOnMain {
+            self.eventsTableView.reloadData()
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -30,6 +35,19 @@ class EventsTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         if CheckInternet.Connection() == false {
             
             alertMessage(message: "You are not connected to the internet.")
+        }
+    }
+    
+    func fetchData() {
+        
+        performuUIUpdatesOnMain {
+            do {
+                
+                try self.fetchedResultsController.performFetch()
+            } catch {
+                
+                print("Unable to fetch the Event data.")
+            }
         }
     }
     
@@ -88,7 +106,7 @@ class EventsTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             }
         } else {
             
-            performuUIUpdatesOnMain {
+           performuUIUpdatesOnMain {
                 print("Start load index: ")
                 print(indexPath.row)
                 cell.activityIndicator.startAnimating()
@@ -108,8 +126,11 @@ class EventsTableVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
                 performuUIUpdatesOnMain {
                     print("Finishing load index: ")
                     print(index.row)
+                    cell.imageView?.image = UIImage(data: imageData!)
+                    cell.titleOfEvent.text = event.eventTitle
                     cell.activityIndicator.hidesWhenStopped = true
                     cell.activityIndicator.stopAnimating()
+                    cell.setNeedsLayout()
                 }
             }
         }
